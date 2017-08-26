@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">NavigationViewAndroid</string>
+    <string name="app_name">Amcor</string>
+    <string name="hint_username">Usuario</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="text_button_login">Ingresar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="order_request">Order Request Fragment</string>
+    <string name="query_tracking">Query Tracking Fragment</string>
+    <string name="value_plus_tray">Value Plus Tray Fragment</string>
+    <string name="footer">AMCOR FLEXIBLE LIMA 2017 - Todos los derechos reservados©</string>
 </resources>

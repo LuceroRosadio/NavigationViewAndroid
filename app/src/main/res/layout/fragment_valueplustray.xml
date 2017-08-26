@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/valuePlusLayout"
+    >
+
+    <TableRow
+        android:id="@+id/tbr_vpt_titulo"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="Nro Pedido"
+            android:padding="10dp"
+            android:background="@drawable/back"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="Cliente"
+            android:padding="10dp"
+            android:background="@drawable/back"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/txt3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="Producto"
+            android:padding="10dp"
+            android:background="@drawable/back"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/txt4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="Cantidad"
+            android:padding="10dp"
+            android:background="@drawable/back"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/txt5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="Precio"
+            android:padding="10dp"
+            android:background="@drawable/back"
+            android:textColor="#000"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="3"
+            android:padding="10dp"
+            android:background="@drawable/back"
+            android:textColor="#000"
+            android:layout_gravity=""
+            android:textAlignment="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text=""
+            android:padding="10dp"
+            android:background="@drawable/back"
+            android:textColor="#000"
+            android:textAlignment="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="marca 1"
+            android:padding="10dp"
+            android:background="@drawable/back"
+            android:textColor="#000"
+            android:textAlignment="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="1"
+            android:padding="10dp"
+            android:background="@drawable/back"
+            android:textColor="#000"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="2.9"
+            android:padding="10dp"
+            android:background="@drawable/back"
+            android:textColor="#000"
+            android:textAlignment="center"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="8"
+            android:padding="10dp"
+            android:background="@drawable/back"
+            android:textColor="#000"
+            android:textAlignment="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="LUIS"
+            android:padding="10dp"
+            android:background="@drawable/back"
+            android:textColor="#000"
+            android:textAlignment="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="marca 1"
+            android:padding="10dp"
+            android:background="@drawable/back"
+            android:textColor="#000"
+            android:textAlignment="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="10"
+            android:padding="10dp"
+            android:background="@drawable/back"
+            android:textColor="#000"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="14.5"
+            android:padding="10dp"
+            android:background="@drawable/back"
+            android:textColor="#000"
+            android:textAlignment="center"/>
+    </TableRow>
+
+</TableLayout>

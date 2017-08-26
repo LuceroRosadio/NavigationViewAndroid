@@ -3,12 +3,14 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main_content"
-    android:gravity="center">
+    android:gravity="center"
+    >
 
     <TextView
         android:gravity="center"
-        android:text="Title"
+        android:text="Bienvenidos :D"
         android:textStyle="bold"
+        android:textSize="30sp"
         android:id="@+id/title_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

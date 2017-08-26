@@ -1,23 +1,26 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="192dp"
-    android:background="#92c89f"
+    android:layout_height="170dp"
+    android:background="#9E9E9E"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:orientation="vertical"
     android:gravity="bottom">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:src="@drawable/ic_face_black_24dp"
-        android:layout_width="120dp"
-        android:layout_height="120dp" />
+    <ImageView
+        android:src="@drawable/icons8_user"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="10dp"/>
 
     <TextView
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sunil Gupta"
+        android:text="Luis Huapaya"
+        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
 </LinearLayout>

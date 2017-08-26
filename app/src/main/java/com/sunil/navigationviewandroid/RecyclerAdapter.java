@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.sunil.navigationviewandroid.data.OpcionModulo;
 import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
@@ -43,12 +44,12 @@ public class RecyclerAdapter extends ExpandableRecyclerViewAdapter<TitleViewHold
     public void onBindChildViewHolder(SubTitleViewHolder holder, int flatPosition,
                                       ExpandableGroup group, final int childIndex) {
 
-        final SubTitle subTitle = ((TitleMenu) group).getItems().get(childIndex);
-        holder.setSubTitletName(subTitle.getName());
+        final OpcionModulo opcionModulo = ((TitleMenu) group).getItems().get(childIndex);
+        holder.setSubTitletName(opcionModulo.getNombreOpcion());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mListener.onChildClick(childIndex);
+                mListener.onChildClick(childIndex, opcionModulo.getEstadoOpcion());
             }
         });
     }
@@ -59,6 +60,6 @@ public class RecyclerAdapter extends ExpandableRecyclerViewAdapter<TitleViewHold
     }
 
     public interface ItemClickChild{
-        void onChildClick(int position);
+        void onChildClick(int position, String option);
     }
 }

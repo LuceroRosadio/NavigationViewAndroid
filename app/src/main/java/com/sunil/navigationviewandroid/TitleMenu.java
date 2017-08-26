@@ -1,5 +1,6 @@
 package com.sunil.navigationviewandroid;
 
+import com.sunil.navigationviewandroid.data.OpcionModulo;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
 import java.util.List;
@@ -8,17 +9,18 @@ import java.util.List;
  * Created by sunil on 12/23/16.
  */
 
-public class TitleMenu extends ExpandableGroup<SubTitle> {
+public class TitleMenu extends ExpandableGroup<OpcionModulo> {
 
-    private String imageUrl;
+    //private String imageUrl;
 
-    public TitleMenu(String title, List<SubTitle> items, String imageUrl) {
+    public TitleMenu(String title, List<OpcionModulo> items) {
         super(title, items);
-        this.imageUrl = imageUrl;
+        //this.imageUrl = imageUrl;
     }
 
-    public String getImageUrl() {
+    /*public String getImageUrl() {
         return imageUrl;
-    }
+    }*/
+
 }
 

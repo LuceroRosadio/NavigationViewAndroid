@@ -1,0 +1,34 @@
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.sunil.navigationviewandroid.opcion.valuePlussTray.ValuePlusTrayFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/value_plus_tray"
+        android:gravity="center"/>
+    <!--
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Consulta de Pedidos"
+        android:paddingTop="80dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="20dp"/>
+
+    <include layout="@layout/activity_value_plus_tray"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/tableRecyclerView"
+        android:layout_marginBottom="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
+
+    -->
+
+</android.support.design.widget.CoordinatorLayout>
