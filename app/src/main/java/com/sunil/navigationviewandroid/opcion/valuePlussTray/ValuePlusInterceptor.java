@@ -97,7 +97,7 @@ public class ValuePlusInterceptor implements Interceptor {
                 .addHeader("content-type", "application/json")
                 .build();
 
-        Log.d(TAG, "response: "+response.toString());
+        //Log.d(TAG, "response: "+response.toString());
 
         return response;
     }

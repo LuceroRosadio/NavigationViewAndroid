@@ -51,13 +51,13 @@ public class ValuePlusTrayFragment extends Fragment {
         Log.d(TAG, "entreValuePlussss");
         View view = inflater.inflate(R.layout.fragment_value_plus_tray, container, false);
 
-        /*recyclerViewValuePlus = (RecyclerView)view.findViewById(R.id.tableRecyclerView);
+        recyclerViewValuePlus = (RecyclerView)view.findViewById(R.id.tableRecyclerView);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
-        recyclerViewValuePlus.setLayoutManager(linearLayoutManager);*/
-        //loadJsonPedidos();
+        recyclerViewValuePlus.setLayoutManager(linearLayoutManager);
+        loadJsonPedidos();
         return view;
 
     }
@@ -90,7 +90,7 @@ public class ValuePlusTrayFragment extends Fragment {
                         OrderRequestResponse data = response.body();
                         Log.d(TAG, data.toString());
                         pedidos = data.getPedidoList();
-                        ValuePlusAdapter valuePlusAdapter = new ValuePlusAdapter(pedidos, R.layout.cardview_order, getActivity());
+                        ValuePlusAdapter valuePlusAdapter = new ValuePlusAdapter(pedidos, getActivity());
                         recyclerViewValuePlus.setAdapter(valuePlusAdapter);
                         break;
                     case 401:

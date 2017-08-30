@@ -21,21 +21,20 @@ import java.util.List;
 public class ValuePlusAdapter extends RecyclerView.Adapter<ValuePlusAdapter.ValuePlusHolder> {
 
     private List<Pedido> pedidos;
-    private int resource;
+    //private int resource;
     private Activity activity;
 
     private String TAG= "adapterValuePlus";
 
-    public ValuePlusAdapter(List<Pedido> pedidos, int resource, Activity activity) {
+    public ValuePlusAdapter(List<Pedido> pedidos,  Activity activity) {
         this.pedidos = pedidos;
-        this.resource = resource;
         this.activity = activity;
     }
 
     @Override
     public ValuePlusHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Log.d(TAG,"onCreateViewHolderValue");
-        View view  = LayoutInflater.from(parent.getContext()).inflate(resource, parent,false);
+        View view  = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_order, parent,false);
         return new ValuePlusHolder(view);
     }
 
@@ -49,7 +48,7 @@ public class ValuePlusAdapter extends RecyclerView.Adapter<ValuePlusAdapter.Valu
         holder.cantidad.setText(pedido.getCantidad());
         holder.precioTotal.setText(pedido.getPrecioTotal());
 
-        Log.d(TAG,"holder"+pedido.toString());
+        Log.d(TAG,"holder: "+pedido.toString());
     }
 
     @Override
