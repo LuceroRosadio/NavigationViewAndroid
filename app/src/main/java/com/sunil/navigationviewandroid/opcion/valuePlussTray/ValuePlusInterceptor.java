@@ -48,7 +48,7 @@ public class ValuePlusInterceptor implements Interceptor {
                 "                },\n" +
                 "                {\n" +
                 "                    \"archivo\": {\n" +
-                "                        \"base64\": \"12334234\",\n" +
+                "                        \"base64\": \"123342345\",\n" +
                 "                        \"contentType\": \"application/pdf\",\n" +
                 "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
                 "                    },\n" +

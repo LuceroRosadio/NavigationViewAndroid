@@ -36,16 +36,17 @@
 
         <TextView
             android:id="@+id/txt1"
-            android:layout_width="wrap_content"
+            android:layout_width="55dp"
             android:layout_height="wrap_content"
             android:textSize="12sp"
-            android:text="Nro Pedido"
-            android:padding="10dp"
+            android:text="Nro \nPedido"
+            android:textAlignment="center"
+            android:padding="8dp"
             android:background="@drawable/back"
             android:textColor="#000"/>
         <TextView
             android:id="@+id/txt2"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:textSize="12sp"
             android:text="Cliente"
@@ -54,7 +55,7 @@
             android:textColor="#000"/>
         <TextView
             android:id="@+id/txt3"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:textSize="12sp"
             android:text="Producto"
@@ -63,7 +64,7 @@
             android:textColor="#000"/>
         <TextView
             android:id="@+id/txt4"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:textSize="12sp"
             android:text="Cantidad"
@@ -73,7 +74,7 @@
 
         <TextView
             android:id="@+id/txt5"
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:textSize="12sp"
             android:text="Precio"
@@ -82,23 +83,15 @@
             android:textColor="#000"/>
     </TableRow>
 
-    <TableRow
-        android:layout_height="wrap_content"
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/tableRecyclerView"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:gravity="center">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/tableRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:scrollbars="vertical"
-            >
-        </android.support.v7.widget.RecyclerView>
-    </TableRow>
+        android:scrollbars="vertical">
+    </android.support.v7.widget.RecyclerView>
 
 
 
