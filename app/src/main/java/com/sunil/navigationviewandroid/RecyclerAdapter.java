@@ -49,7 +49,7 @@ public class RecyclerAdapter extends ExpandableRecyclerViewAdapter<TitleViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mListener.onChildClick(childIndex, opcionModulo.getEstadoOpcion());
+                mListener.onChildClick(childIndex, opcionModulo);
             }
         });
     }
@@ -60,6 +60,6 @@ public class RecyclerAdapter extends ExpandableRecyclerViewAdapter<TitleViewHold
     }
 
     public interface ItemClickChild{
-        void onChildClick(int position, String option);
+        void onChildClick(int position, OpcionModulo option);
     }
 }
