@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
                         .replace(R.id.frame, containerFragment, "containerFragment")
                         .addToBackStack("containerFragment")
                         .commit();
-                setTitle(option);
+                setTitle(option.getNombreOpcion());
                 break;
         }
 

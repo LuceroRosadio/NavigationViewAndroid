@@ -16,6 +16,7 @@ import com.google.gson.GsonBuilder;
 import com.sunil.navigationviewandroid.R;
 import com.sunil.navigationviewandroid.opcion.valuePlussTray.detalle.DetalleAdapter;
 import com.sunil.navigationviewandroid.opcion.valuePlussTray.detalle.DetalleInterceptor;
+import com.sunil.navigationviewandroid.opcion.valuePlussTray.detalle.ObResponse;
 import com.sunil.navigationviewandroid.opcion.valuePlussTray.detalle.PedidoDetalle;
 import com.sunil.navigationviewandroid.opcion.valuePlussTray.detalle.PedidoResponse;
 import com.sunil.navigationviewandroid.opcion.valuePlussTray.detalle.RestDetalle;
@@ -38,7 +39,7 @@ public class DetalleTabFragment extends Fragment {
     private static final String TAG = "DetalleTabFragment";
 
     private RecyclerView recyclerViewDetalle;
-    private List<PedidoDetalle> pedidoDetalles = new ArrayList<>();
+    private List<PedidoResponse> pedidos = new ArrayList<>();
 
 
     public DetalleTabFragment() {
@@ -79,18 +80,18 @@ public class DetalleTabFragment extends Fragment {
                 .build();
 
         RestDetalle restDetalle = retrofit.create(RestDetalle.class);
-        Call<PedidoResponse> call = restDetalle.getDetalle();
+        Call<ObResponse> call = restDetalle.getDetalle();
 
-        call.enqueue(new Callback<PedidoResponse>() {
+        call.enqueue(new Callback<ObResponse>() {
             @Override
-            public void onResponse(Call<PedidoResponse> call, Response<PedidoResponse> response) {
+            public void onResponse(Call<ObResponse> call, Response<ObResponse> response) {
                 Log.d(TAG, response.code() +"");
                 switch (response.code()) {
                     case 200:
-                        PedidoResponse data = response.body();
+                        ObResponse data = response.body();
                         Log.d(TAG, data.toString());
-                        pedidoDetalles = data.getPedidosDetalle();
-                        DetalleAdapter detalleAdapter = new DetalleAdapter(pedidoDetalles, getActivity());
+                        pedidos = data.getPedidoResponseList();
+                        DetalleAdapter detalleAdapter = new DetalleAdapter(pedidos, getActivity());
                         recyclerViewDetalle.setAdapter(detalleAdapter);
                         break;
                     case 401:
@@ -101,7 +102,7 @@ public class DetalleTabFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<PedidoResponse> call, Throwable t) {
+            public void onFailure(Call<ObResponse> call, Throwable t) {
 
             }
         });

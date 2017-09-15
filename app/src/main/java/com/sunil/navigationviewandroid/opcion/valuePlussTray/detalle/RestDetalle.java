@@ -10,5 +10,5 @@ import retrofit2.http.GET;
 public interface RestDetalle {
 
     @GET("detalle")
-    Call<PedidoResponse> getDetalle();
+    Call<ObResponse> getDetalle();
 }
