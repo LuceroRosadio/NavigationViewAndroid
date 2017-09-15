@@ -41,8 +41,6 @@ public class TitleFragment extends Fragment {
         ButterKnife.bind(this, rootView);
         //showToolBar(false, rootView);
 
-
-
         return rootView;
     }
 

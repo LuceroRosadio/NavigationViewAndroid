@@ -23,6 +23,8 @@ import com.sunil.navigationviewandroid.data.Modulo;
 import com.sunil.navigationviewandroid.data.UserResponse;
 import com.sunil.navigationviewandroid.fragment.OrderRequestFragment;
 import com.sunil.navigationviewandroid.fragment.QueryTrackingFragment;
+import com.sunil.navigationviewandroid.opcion.createOrder.ContainerFragment;
+import com.sunil.navigationviewandroid.opcion.createOrder.CreateOrderFragment;
 import com.sunil.navigationviewandroid.opcion.valuePlussTray.ValuePlusTrayFragment;
 
 import java.util.ArrayList;
@@ -185,6 +187,14 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
                 setTitle(option);
                 /*FragmentTransaction fragmentTransaction2 = getFragmentManager().beginTransaction();
                 fragmentTransaction2.replace(R.id.frame, valuePlusTrayFragment, "valuePlusTrayFragment").commit();*/
+                break;
+            case "createOrder":
+                ContainerFragment containerFragment = new ContainerFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame, containerFragment, "containerFragment")
+                        .addToBackStack("containerFragment")
+                        .commit();
+                setTitle(option);
                 break;
         }
 

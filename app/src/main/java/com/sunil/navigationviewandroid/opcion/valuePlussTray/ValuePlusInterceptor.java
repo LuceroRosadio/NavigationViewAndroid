@@ -44,11 +44,198 @@ public class ValuePlusInterceptor implements Interceptor {
                 "                    \"version\": \"v01\",\n" +
                 "                    \"color\":\"#F78181\",\n" +
                 "                    \"estado\":1,\n" +
-                "                    \"ubicacion\":\"VALUE PLUS\"\n" +
+                "                    \"codProducto\":1234,\n" +
+                "                    \"codCliente\":1\n" +
                 "                },\n" +
                 "                {\n" +
                 "                    \"archivo\": {\n" +
-                "                        \"base64\": \"123342345\",\n" +
+                "                        \"base64\": \"12334234\",\n" +
+                "                        \"contentType\": \"application/pdf\",\n" +
+                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
+                "                    },\n" +
+                "                    \"cantidad\": \"10\",\n" +
+                "                    \"cliente\": \"LUIS \",\n" +
+                "                    \"fechaSol\": \"10/01/2017\",\n" +
+                "                    \"numeroPedido\": \"8\",\n" +
+                "                    \"precioTotal\": \"14.5\",\n" +
+                "                    \"producto\": \"marca 1\",\n" +
+                "                    \"unidadMedida\": \"KG\",\n" +
+                "                    \"version\": \"v01\",\n" +
+                "                    \"color\":\"blue\",\n" +
+                "                    \"estado\" : 2\n" +
+                "                },\n" +
+                "                {\n" +
+                "                    \"archivo\": {\n" +
+                "                        \"base64\": \"12334234\",\n" +
+                "                        \"contentType\": \"application/pdf\",\n" +
+                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
+                "                    },\n" +
+                "                    \"cantidad\": \"10\",\n" +
+                "                    \"cliente\": \"LUIS \",\n" +
+                "                    \"fechaSol\": \"10/01/2017\",\n" +
+                "                    \"numeroPedido\": \"8\",\n" +
+                "                    \"precioTotal\": \"14.5\",\n" +
+                "                    \"producto\": \"marca 1\",\n" +
+                "                    \"unidadMedida\": \"KG\",\n" +
+                "                    \"version\": \"v01\",\n" +
+                "                    \"color\":\"blue\",\n" +
+                "                    \"estado\" : 2\n" +
+                "                },\n" +
+                "                {\n" +
+                "                    \"archivo\": {\n" +
+                "                        \"base64\": \"12334234\",\n" +
+                "                        \"contentType\": \"application/pdf\",\n" +
+                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
+                "                    },\n" +
+                "                    \"cantidad\": \"10\",\n" +
+                "                    \"cliente\": \"LUIS \",\n" +
+                "                    \"fechaSol\": \"10/01/2017\",\n" +
+                "                    \"numeroPedido\": \"8\",\n" +
+                "                    \"precioTotal\": \"14.5\",\n" +
+                "                    \"producto\": \"marca 1\",\n" +
+                "                    \"unidadMedida\": \"KG\",\n" +
+                "                    \"version\": \"v01\",\n" +
+                "                    \"color\":\"blue\",\n" +
+                "                    \"estado\" : 2\n" +
+                "                },\n" +
+                "                {\n" +
+                "                    \"archivo\": {\n" +
+                "                        \"base64\": \"12334234\",\n" +
+                "                        \"contentType\": \"application/pdf\",\n" +
+                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
+                "                    },\n" +
+                "                    \"cantidad\": \"10\",\n" +
+                "                    \"cliente\": \"LUIS \",\n" +
+                "                    \"fechaSol\": \"10/01/2017\",\n" +
+                "                    \"numeroPedido\": \"8\",\n" +
+                "                    \"precioTotal\": \"14.5\",\n" +
+                "                    \"producto\": \"marca 1\",\n" +
+                "                    \"unidadMedida\": \"KG\",\n" +
+                "                    \"version\": \"v01\",\n" +
+                "                    \"color\":\"blue\",\n" +
+                "                    \"estado\" : 2\n" +
+                "                },\n" +
+                "                {\n" +
+                "                    \"archivo\": {\n" +
+                "                        \"base64\": \"12334234\",\n" +
+                "                        \"contentType\": \"application/pdf\",\n" +
+                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
+                "                    },\n" +
+                "                    \"cantidad\": \"10\",\n" +
+                "                    \"cliente\": \"LUIS \",\n" +
+                "                    \"fechaSol\": \"10/01/2017\",\n" +
+                "                    \"numeroPedido\": \"8\",\n" +
+                "                    \"precioTotal\": \"14.5\",\n" +
+                "                    \"producto\": \"marca 1\",\n" +
+                "                    \"unidadMedida\": \"KG\",\n" +
+                "                    \"version\": \"v01\",\n" +
+                "                    \"color\":\"blue\",\n" +
+                "                    \"estado\" : 2\n" +
+                "                },{\n" +
+                "                    \"archivo\": {\n" +
+                "                        \"base64\": \"12334234\",\n" +
+                "                        \"contentType\": \"application/pdf\",\n" +
+                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
+                "                    },\n" +
+                "                    \"cantidad\": \"10\",\n" +
+                "                    \"cliente\": \"LUIS \",\n" +
+                "                    \"fechaSol\": \"10/01/2017\",\n" +
+                "                    \"numeroPedido\": \"8\",\n" +
+                "                    \"precioTotal\": \"14.5\",\n" +
+                "                    \"producto\": \"marca 1\",\n" +
+                "                    \"unidadMedida\": \"KG\",\n" +
+                "                    \"version\": \"v01\",\n" +
+                "                    \"color\":\"blue\",\n" +
+                "                    \"estado\" : 2\n" +
+                "                },\n" +
+                "                {\n" +
+                "                    \"archivo\": {\n" +
+                "                        \"base64\": \"12334234\",\n" +
+                "                        \"contentType\": \"application/pdf\",\n" +
+                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
+                "                    },\n" +
+                "                    \"cantidad\": \"10\",\n" +
+                "                    \"cliente\": \"LUIS \",\n" +
+                "                    \"fechaSol\": \"10/01/2017\",\n" +
+                "                    \"numeroPedido\": \"8\",\n" +
+                "                    \"precioTotal\": \"14.5\",\n" +
+                "                    \"producto\": \"marca 1\",\n" +
+                "                    \"unidadMedida\": \"KG\",\n" +
+                "                    \"version\": \"v01\",\n" +
+                "                    \"color\":\"blue\",\n" +
+                "                    \"estado\" : 2\n" +
+                "                },\n" +
+                "                {\n" +
+                "                    \"archivo\": {\n" +
+                "                        \"base64\": \"12334234\",\n" +
+                "                        \"contentType\": \"application/pdf\",\n" +
+                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
+                "                    },\n" +
+                "                    \"cantidad\": \"10\",\n" +
+                "                    \"cliente\": \"LUIS \",\n" +
+                "                    \"fechaSol\": \"10/01/2017\",\n" +
+                "                    \"numeroPedido\": \"8\",\n" +
+                "                    \"precioTotal\": \"14.5\",\n" +
+                "                    \"producto\": \"marca 1\",\n" +
+                "                    \"unidadMedida\": \"KG\",\n" +
+                "                    \"version\": \"v01\",\n" +
+                "                    \"color\":\"blue\",\n" +
+                "                    \"estado\" : 2\n" +
+                "                },\n" +
+                "                {\n" +
+                "                    \"archivo\": {\n" +
+                "                        \"base64\": \"12334234\",\n" +
+                "                        \"contentType\": \"application/pdf\",\n" +
+                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
+                "                    },\n" +
+                "                    \"cantidad\": \"10\",\n" +
+                "                    \"cliente\": \"LUIS \",\n" +
+                "                    \"fechaSol\": \"10/01/2017\",\n" +
+                "                    \"numeroPedido\": \"8\",\n" +
+                "                    \"precioTotal\": \"14.5\",\n" +
+                "                    \"producto\": \"marca 1\",\n" +
+                "                    \"unidadMedida\": \"KG\",\n" +
+                "                    \"version\": \"v01\",\n" +
+                "                    \"color\":\"blue\",\n" +
+                "                    \"estado\" : 2\n" +
+                "                },\n" +
+                "                {\n" +
+                "                    \"archivo\": {\n" +
+                "                        \"base64\": \"12334234\",\n" +
+                "                        \"contentType\": \"application/pdf\",\n" +
+                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
+                "                    },\n" +
+                "                    \"cantidad\": \"10\",\n" +
+                "                    \"cliente\": \"LUIS \",\n" +
+                "                    \"fechaSol\": \"10/01/2017\",\n" +
+                "                    \"numeroPedido\": \"8\",\n" +
+                "                    \"precioTotal\": \"14.5\",\n" +
+                "                    \"producto\": \"marca 1\",\n" +
+                "                    \"unidadMedida\": \"KG\",\n" +
+                "                    \"version\": \"v01\",\n" +
+                "                    \"color\":\"blue\",\n" +
+                "                    \"estado\" : 2\n" +
+                "                },\n" +
+                "                {\n" +
+                "                    \"archivo\": {\n" +
+                "                        \"base64\": \"12334234\",\n" +
+                "                        \"contentType\": \"application/pdf\",\n" +
+                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
+                "                    },\n" +
+                "                    \"cantidad\": \"10\",\n" +
+                "                    \"cliente\": \"LUIS \",\n" +
+                "                    \"fechaSol\": \"10/01/2017\",\n" +
+                "                    \"numeroPedido\": \"8\",\n" +
+                "                    \"precioTotal\": \"14.5\",\n" +
+                "                    \"producto\": \"marca 1\",\n" +
+                "                    \"unidadMedida\": \"KG\",\n" +
+                "                    \"version\": \"v01\",\n" +
+                "                    \"color\":\"blue\",\n" +
+                "                    \"estado\" : 2\n" +
+                "                },\n" +
+                "                {\n" +
+                "                    \"archivo\": {\n" +
+                "                        \"base64\": \"12334234\",\n" +
                 "                        \"contentType\": \"application/pdf\",\n" +
                 "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
                 "                    },\n" +
@@ -63,6 +250,7 @@ public class ValuePlusInterceptor implements Interceptor {
                 "                    \"color\":\"blue\",\n" +
                 "                    \"estado\" : 2\n" +
                 "                }\n" +
+                "\n" +
                 "            ]\n" +
                 "            ,\"estados\": [\n" +
                 "                {\n" +
@@ -78,12 +266,12 @@ public class ValuePlusInterceptor implements Interceptor {
                 "                {\n" +
                 "                    \"estado\":3,\n" +
                 "                    \"color\" : \"#fff\",\n" +
-                "                    \"descripcion\": \"Estado 3\"\n" +
+                "                    \"descripcion\": \"Estado 1\"\n" +
                 "                },\n" +
                 "                {\n" +
                 "                    \"estado\":4,\n" +
                 "                    \"color\" : \"#eee\",\n" +
-                "                    \"descripcion\": \"Estado 4\"\n" +
+                "                    \"descripcion\": \"Estado 2\"\n" +
                 "                }\n" +
                 "            ]\n" +
                 "        }";

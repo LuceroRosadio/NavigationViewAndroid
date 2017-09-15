@@ -48,7 +48,7 @@ public class ValuePlusTrayFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        Log.d(TAG, "entreValuePlussss");
+        Log.d(TAG, "ValuePlus");
         View view = inflater.inflate(R.layout.fragment_value_plus_tray, container, false);
 
         recyclerViewValuePlus = (RecyclerView)view.findViewById(R.id.tableRecyclerView);

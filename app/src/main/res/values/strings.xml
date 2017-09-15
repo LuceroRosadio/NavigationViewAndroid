@@ -9,4 +9,8 @@
     <string name="query_tracking">Query Tracking Fragment</string>
     <string name="value_plus_tray">Value Plus Tray Fragment</string>
     <string name="footer">AMCOR FLEXIBLE LIMA 2017 - Todos los derechos reservados©</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_solicitud">Solicitud</string>
 </resources>

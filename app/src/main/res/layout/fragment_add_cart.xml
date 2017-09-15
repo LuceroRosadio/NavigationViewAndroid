@@ -1,0 +1,216 @@
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/frameAddCart"
+    tools:context="com.sunil.navigationviewandroid.opcion.createOrder.AddCartFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/tv_producto"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Producto"/>
+
+                <ImageButton
+                    android:id="@+id/ib_buscar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/search_48"
+                    android:padding="10dp"
+                    android:layout_toRightOf="@id/tv_producto"
+                    android:background="@drawable/round_corner"/>
+
+                <EditText
+                    android:id="@+id/edt_producto"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_producto"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/productRecyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/edt_producto"
+                    android:visibility="invisible">
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/tv_descripcion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/productRecyclerview"
+                    android:text="Descripción"/>
+
+                <EditText
+                    android:id="@+id/edt_descripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textMultiLine"
+                    android:layout_below="@+id/tv_descripcion"/>
+
+                <TextView
+                    android:id="@+id/tv_unidad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/edt_descripcion"
+                    android:text="Unidad"/>
+
+                <EditText
+                    android:id="@+id/edt_unidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_unidad"/>
+
+                <TextView
+                    android:id="@+id/tv_detalle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/edt_unidad"
+                    android:text="Detalle"
+                    android:layout_marginTop="10dp"/>
+
+                <RelativeLayout
+                    android:id="@+id/rl_detalle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_detalle"
+                    android:layout_marginBottom="10dp"
+                    android:padding="10dp"
+                    android:background="@drawable/background_border">
+
+                    <TextView
+                        android:id="@+id/tv_cantidad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cantidad"/>
+
+                    <EditText
+                        android:id="@+id/edt_cantidad"
+                        android:layout_width="118dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_cantidad"/>
+
+                    <TextView
+                        android:id="@+id/tv_fecha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Fecha Solicitada"
+                        android:layout_toRightOf="@+id/edt_cantidad"/>
+
+                    <EditText
+                        android:id="@+id/edt_fecha"
+                        android:layout_width="118dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_below="@+id/tv_fecha"
+                        android:layout_toRightOf="@+id/edt_cantidad"
+                        android:layout_toEndOf="@+id/edt_cantidad" />
+
+                    <ImageButton
+                        android:id="@+id/ib_detalle"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/plus_48"
+                        android:layout_alignTop="@+id/edt_fecha"
+                        android:layout_toRightOf="@+id/edt_fecha"
+                        android:layout_toEndOf="@+id/edt_fecha" />
+
+                    <TableRow
+                        android:id="@+id/tr_detalle"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_below="@+id/ib_detalle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/trv_cantidad"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cantidad"
+                            android:textAlignment="center"
+                            android:padding="@dimen/table_padding"
+                            android:background="@drawable/table_background"
+                            android:textColor="#000"/>
+                        <TextView
+                            android:id="@+id/trv_producto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fecha Solicitada"
+                            android:padding="@dimen/table_padding"
+                            android:background="@drawable/table_background"
+                            android:textColor="#000"/>
+
+                    </TableRow>
+
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/btn_archivo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rl_detalle"
+                    android:padding="10dp"
+                    android:text="Archivo"
+                    android:textColor="@color/white"
+                    android:drawableLeft="@drawable/attach_48"
+                    android:background="@drawable/round_corner"/>
+
+                <EditText
+                    android:id="@+id/edt_archivo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_below="@+id/rl_detalle"
+                    android:layout_toRightOf="@+id/btn_archivo"
+                    android:layout_toEndOf="@+id/btn_archivo" />
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+        <ImageButton
+            android:id="@+id/btn_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="250dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:src="@drawable/checkmark_48"
+            android:background="@drawable/round_corner"/>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

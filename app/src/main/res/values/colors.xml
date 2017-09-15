@@ -21,4 +21,5 @@
 
     <color name="editTextColorWhite">#FFFFFF</color>
     <color name="editTextColorBlack">#000000</color>
+    <color name="tv_product">#088A29</color>
 </resources>

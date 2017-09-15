@@ -35,13 +35,22 @@ public class Pedido implements Parcelable{
     private String ubicacion;
     @SerializedName("cliente")
     private String cliente;
+    @SerializedName("cantDias")
+    private String cantidadDias;
+    @SerializedName("precioUnitario")
+    private String precioUnitario;
+    @SerializedName("descEstado")
+    private String estadoMotivo;
+    @SerializedName("codProducto")
+    private String codigoProducto;
 
     public Pedido() {
     }
 
     public Pedido(Archivo archivo, String cantidad, String fechaSol, String numeroPedido,
                   String precioTotal, String producto, String unidadMedida, String version,
-                  String color, int estado, String ubicacion, String cliente) {
+                  String color, int estado, String ubicacion, String cliente, String cantidadDias,
+                  String precioUnitario, String estadoMotivo, String codigoProducto) {
         this.archivo = archivo;
         this.cantidad = cantidad;
         this.fechaSol = fechaSol;
@@ -54,6 +63,10 @@ public class Pedido implements Parcelable{
         this.estado = estado;
         this.ubicacion = ubicacion;
         this.cliente = cliente;
+        this.cantidadDias = cantidadDias;
+        this.precioUnitario = precioUnitario;
+        this.estadoMotivo = estadoMotivo;
+        this.codigoProducto = codigoProducto;
     }
 
     protected Pedido(Parcel in) {
@@ -69,6 +82,10 @@ public class Pedido implements Parcelable{
         estado = in.readInt();
         ubicacion = in.readString();
         cliente = in.readString();
+        cantidadDias = in.readString();
+        precioUnitario = in.readString();
+        estadoMotivo = in.readString();
+        codigoProducto = in.readString();
     }
 
     public static final Creator<Pedido> CREATOR = new Creator<Pedido>() {
@@ -98,6 +115,10 @@ public class Pedido implements Parcelable{
                 ", estado=" + estado +
                 ", ubicacion='" + ubicacion + '\'' +
                 ", cliente='" + cliente + '\'' +
+                ", cantidadDias='" + cantidadDias + '\'' +
+                ", precioUnitario='" + precioUnitario + '\'' +
+                ", estadoMotivo='" + estadoMotivo + '\'' +
+                ", codigoProducto='" + codigoProducto + '\'' +
                 '}';
     }
 
@@ -197,6 +218,37 @@ public class Pedido implements Parcelable{
         this.cliente = cliente;
     }
 
+    public String getCantidadDias() {
+        return cantidadDias;
+    }
+
+    public void setCantidadDias(String cantidadDias) {
+        this.cantidadDias = cantidadDias;
+    }
+
+    public String getPrecioUnitario() {
+        return precioUnitario;
+    }
+
+    public void setPrecioUnitario(String precioUnitario) {
+        this.precioUnitario = precioUnitario;
+    }
+
+    public String getEstadoMotivo() {
+        return estadoMotivo;
+    }
+
+    public void setEstadoMotivo(String estadoMotivo) {
+        this.estadoMotivo = estadoMotivo;
+    }
+
+    public String getCodigoProducto() {
+        return codigoProducto;
+    }
+
+    public void setCodigoProducto(String codigoProducto) {
+        this.codigoProducto = codigoProducto;
+    }
 
     @Override
     public int describeContents() {
@@ -217,6 +269,10 @@ public class Pedido implements Parcelable{
         dest.writeInt(estado);
         dest.writeString(ubicacion);
         dest.writeString(cliente);
+        dest.writeString(cantidadDias);
+        dest.writeString(precioUnitario);
+        dest.writeString(estadoMotivo);
+        dest.writeString(codigoProducto);
     }
 
 

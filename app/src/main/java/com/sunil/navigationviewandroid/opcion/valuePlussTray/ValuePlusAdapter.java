@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -49,16 +50,52 @@ public class ValuePlusAdapter extends RecyclerView.Adapter<ValuePlusAdapter.Valu
         holder.cliente.setText(pedido.getCliente());
         holder.producto.setText(pedido.getProducto());
         holder.cantidad.setText(pedido.getCantidad());
+        holder.unidad.setText(pedido.getUnidadMedida());
+        holder.ubicacion.setText(pedido.getUbicacion());
+
+        holder.codigo.setText(pedido.getCodigoProducto());
+        holder.version.setText(pedido.getVersion());
+        holder.precioUnitario.setText(pedido.getPrecioUnitario());
         holder.precioTotal.setText(pedido.getPrecioTotal());
-        holder.base64.setText(pedido.getArchivo().getBase64());
+        holder.cantidadDias.setText(pedido.getCantidadDias());
+        holder.motivo.setText(pedido.getEstadoMotivo());
+
+        /*holder.base64.setText(pedido.getArchivo().getBase64());
         holder.contentType.setText(pedido.getArchivo().getContentType());
-        holder.nombreArchivo.setText(pedido.getArchivo().getNombreArchivo());
+        holder.nombreArchivo.setText(pedido.getArchivo().getNombreArchivo());*/
 
         Log.d(TAG,"holder: "+pedido.toString());
 
 
+        holder.archivo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    holder.codigo.setVisibility(View.VISIBLE);
+                    holder.version.setVisibility(View.VISIBLE);
+                    holder.precioUnitario.setVisibility(View.VISIBLE);
+                    holder.precioTotal.setVisibility(View.VISIBLE);
+                    holder.cantidadDias.setVisibility(View.VISIBLE);
+                    holder.motivo.setVisibility(View.VISIBLE);
+                } else {
+                    holder.codigo.setVisibility(View.GONE);
+                    holder.version.setVisibility(View.GONE);
+                    holder.precioUnitario.setVisibility(View.GONE);
+                    holder.precioTotal.setVisibility(View.GONE);
+                    holder.cantidadDias.setVisibility(View.GONE);
+                    holder.motivo.setVisibility(View.GONE);
+                }
+            }
+        });
 
-        holder.archivo.setOnClickListener(new View.OnClickListener() {
+        holder.verDetalle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        /*holder.archivo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG,"base64");
@@ -67,7 +104,7 @@ public class ValuePlusAdapter extends RecyclerView.Adapter<ValuePlusAdapter.Valu
                 holder.contentType.setVisibility(View.VISIBLE);
                 holder.nombreArchivo.setVisibility(View.VISIBLE);
             }
-        });
+        });*/
     }
 
     @Override
@@ -82,11 +119,20 @@ public class ValuePlusAdapter extends RecyclerView.Adapter<ValuePlusAdapter.Valu
         TextView cliente;
         TextView producto;
         TextView cantidad;
+        TextView unidad;
+        TextView ubicacion;
+        TextView codigo;
+        TextView version;
+        TextView precioUnitario;
         TextView precioTotal;
-        TextView base64;
+        TextView cantidadDias;
+        TextView motivo;
+
+        /*TextView base64;
         TextView contentType;
-        TextView nombreArchivo;
+        TextView nombreArchivo;*/
         CheckBox archivo;
+        CheckBox verDetalle;
 
         public ValuePlusHolder(View itemView) {
             super(itemView);
@@ -95,16 +141,28 @@ public class ValuePlusAdapter extends RecyclerView.Adapter<ValuePlusAdapter.Valu
             cliente = (TextView)itemView.findViewById(R.id.campo2);
             producto = (TextView)itemView.findViewById(R.id.campo3);
             cantidad = (TextView)itemView.findViewById(R.id.campo4);
-            precioTotal = (TextView)itemView.findViewById(R.id.campo5);
-            base64 = (TextView)itemView.findViewById(R.id.archivo1);
-            contentType = (TextView)itemView.findViewById(R.id.archivo2);
-            nombreArchivo = (TextView)itemView.findViewById(R.id.archivo3);
+            unidad = (TextView)itemView.findViewById(R.id.campo5);
+            ubicacion = (TextView)itemView.findViewById(R.id.campo6);
+
+            codigo = (TextView)itemView.findViewById(R.id.archivo1);
+            version = (TextView)itemView.findViewById(R.id.archivo2);
+            precioUnitario = (TextView)itemView.findViewById(R.id.archivo3);
+            precioTotal = (TextView)itemView.findViewById(R.id.archivo4);
+            cantidadDias = (TextView)itemView.findViewById(R.id.archivo5);
+            motivo = (TextView)itemView.findViewById(R.id.archivo6);
+
             archivo = (CheckBox) itemView.findViewById(R.id.checkOpcion);
 
-            base64.setVisibility(View.GONE);
-            contentType.setVisibility(View.GONE);
-            nombreArchivo.setVisibility(View.GONE);
+            codigo.setVisibility(View.GONE);
+            version.setVisibility(View.GONE);
+            precioUnitario.setVisibility(View.GONE);
+            precioTotal.setVisibility(View.GONE);
+            cantidadDias.setVisibility(View.GONE);
+            motivo.setVisibility(View.GONE);
+
+            verDetalle = (CheckBox)itemView.findViewById(R.id.checkDetalle);
         }
     }
 
 }
+

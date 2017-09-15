@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/orderCardview"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp">
+    android:layout_marginLeft="0dp"
+    android:layout_marginRight="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,35 +14,35 @@
 
         <CheckBox
             android:id="@+id/checkOpcion"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:button="@drawable/checkbox_selector"/>
 
         <TextView
-            android:layout_width="50dp"
+            android:layout_width="32dp"
             android:layout_height="wrap_content"
             android:id="@+id/campo1"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:background="@drawable/back"
             android:textAlignment="center"
             android:layout_gravity="center_vertical"/>
 
         <TextView
-            android:layout_width="70dp"
+            android:layout_width="34dp"
             android:layout_height="wrap_content"
             android:id="@+id/campo2"
             android:textAlignment="center"
             android:background="@drawable/back"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:layout_gravity="center_vertical"/>
 
         <TextView
-            android:layout_width="70dp"
+            android:layout_width="43dp"
             android:layout_height="wrap_content"
             android:id="@+id/campo3"
             android:background="@drawable/back"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:textAlignment="center"
             android:layout_gravity="center_vertical"/>
 
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/campo4"
             android:background="@drawable/back"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:textAlignment="center"
             android:layout_gravity="center_vertical"/>
 
@@ -60,23 +60,40 @@
             android:layout_height="wrap_content"
             android:id="@+id/campo5"
             android:background="@drawable/back"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:textAlignment="center"
             android:layout_gravity="center_vertical"/>
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/campo6"
+            android:background="@drawable/back"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:layout_gravity="center_vertical"/>
+
+        <CheckBox
+            android:id="@+id/checkDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:button="@drawable/eye_48"/>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="25dp">
+        android:layout_marginTop="23dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/archivo1"
             android:background="@drawable/back"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:textAlignment="center"
             android:visibility="invisible"/>
 
@@ -85,7 +102,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/archivo2"
             android:background="@drawable/back"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:textAlignment="center"
             android:visibility="invisible"/>
 
@@ -93,6 +110,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/archivo3"
+            android:background="@drawable/back"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/archivo4"
+            android:background="@drawable/back"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/archivo5"
+            android:background="@drawable/back"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/archivo6"
             android:background="@drawable/back"
             android:textSize="12sp"
             android:textAlignment="center"
