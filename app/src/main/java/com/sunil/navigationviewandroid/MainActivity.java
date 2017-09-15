@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sunil.navigationviewandroid.data.Modulo;
+import com.sunil.navigationviewandroid.data.OpcionModulo;
 import com.sunil.navigationviewandroid.data.UserResponse;
 import com.sunil.navigationviewandroid.fragment.OrderRequestFragment;
 import com.sunil.navigationviewandroid.fragment.QueryTrackingFragment;
@@ -144,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
     }
 
     @Override
-    public void onChildClick(int position, String option) {
+    public void onChildClick(int position, OpcionModulo option) {
         Log.d(TAG, "position" +position);
         //Log.d(TAG, "opcion" +opcion);
         //String name = subNames[position];
@@ -155,14 +156,14 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
         fragmentTransaction.replace(R.id.frame, queryTrackingFragment)
                 .commit();*/
 
-        switch (option) {
+        switch (option.getEstadoOpcion()) {
             case "orderRequest":
                 OrderRequestFragment orderRequestFragment = new OrderRequestFragment();
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame, orderRequestFragment, "orderRequestFragment")
                         .addToBackStack("orderRequestFragment")
                         .commit();
-                setTitle(option);
+                setTitle(option.getNombreOpcion());
                 /*FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.frame, orderRequestFragment, "orderRequestFragment")
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
@@ -174,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
                         .replace(R.id.frame, queryTrackingFragment, "querTrackingFragment")
                         .addToBackStack("querTrackingFragment")
                         .commit();
-                setTitle(option);
+                setTitle(option.getNombreOpcion());
                 /*FragmentTransaction fragmentTransaction1 = getFragmentManager().beginTransaction();
                 fragmentTransaction1.replace(R.id.frame, queryTrackingFragment, "querTrackingFragment").commit();*/
                 break;
@@ -184,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
                         .replace(R.id.frame, valuePlusTrayFragment, "valuePlusTrayFragment")
                         .addToBackStack("valuePlusTrayFragment")
                         .commit();
-                setTitle(option);
+                setTitle(option.getNombreOpcion());
                 /*FragmentTransaction fragmentTransaction2 = getFragmentManager().beginTransaction();
                 fragmentTransaction2.replace(R.id.frame, valuePlusTrayFragment, "valuePlusTrayFragment").commit();*/
                 break;
