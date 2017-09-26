@@ -1,11 +1,25 @@
-<LinearLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context="com.sunil.amcor.opcion.valuePlussTray.detalle.fragment.DetalleTabFragment"
+    android:id="@+id/tab_detalle_coordinator">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
-    tools:context="com.sunil.navigationviewandroid.opcion.valuePlussTray.detalle.fragment.DetalleTabFragment">
+    android:padding="10dp">
+
+    <!--<android.support.v7.widget.RecyclerView
+        android:id="@+id/detalleRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:scrollbars="vertical">
+    </android.support.v7.widget.RecyclerView> -->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -133,7 +147,7 @@
             android:layout_width="match_parent">
             <TextView
                 android:id="@+id/txt1"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/back"
                 android:text="Cantidad"
@@ -141,12 +155,11 @@
                 android:textColor="#000"
                 android:textSize="13sp"
                 android:layout_gravity="center"
-                android:padding="10dp"
-                />
+                android:padding="10dp"/>
 
             <TextView
                 android:id="@+id/txt2"
-                android:layout_width="wrap_content"
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
                 android:text="Fecha Solicitada"
@@ -157,11 +170,9 @@
         </TableRow>
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/detalleRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:id="@+id/detallePedidoRecyclerView"
+            android:layout_width="320dp"
+            android:layout_height="80dp"
             android:scrollbars="vertical">
         </android.support.v7.widget.RecyclerView>
 
@@ -177,3 +188,6 @@
         android:background="#26A69A"/>
 
 </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
+

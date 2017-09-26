@@ -21,7 +21,7 @@
 
         <TextView
             android:layout_width="32dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:id="@+id/campo1"
             android:textSize="10sp"
             android:background="@drawable/back"
@@ -30,7 +30,7 @@
 
         <TextView
             android:layout_width="34dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:id="@+id/campo2"
             android:textAlignment="center"
             android:background="@drawable/back"
@@ -39,7 +39,7 @@
 
         <TextView
             android:layout_width="43dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:id="@+id/campo3"
             android:background="@drawable/back"
             android:textSize="10sp"
@@ -48,7 +48,7 @@
 
         <TextView
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:id="@+id/campo4"
             android:background="@drawable/back"
             android:textSize="10sp"
@@ -57,7 +57,7 @@
 
         <TextView
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:id="@+id/campo5"
             android:background="@drawable/back"
             android:textSize="10sp"
@@ -66,7 +66,7 @@
 
         <TextView
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:id="@+id/campo6"
             android:background="@drawable/back"
             android:textSize="10sp"
@@ -76,73 +76,150 @@
         <CheckBox
             android:id="@+id/checkDetalle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:button="@drawable/eye_48"/>
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="23dp">
+        android:layout_marginTop="28dp"
+        android:layout_marginLeft="26dp">
+
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:text="Cod. Producto:"
+            android:textSize="10sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/archivo1"
             android:background="@drawable/back"
-            android:textSize="10sp"
+            android:visibility="invisible"
             android:textAlignment="center"
-            android:visibility="invisible"/>
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv_1"
+            android:layout_toEndOf="@+id/tv_1"
+            android:textSize="10sp"/>
+
+        <TextView
+            android:id="@+id/tv_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:text="Versión:"
+            android:layout_below="@+id/tv_1"
+            android:textSize="10sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/archivo2"
             android:background="@drawable/back"
-            android:textSize="10sp"
             android:textAlignment="center"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv_1"
+            android:layout_toEndOf="@+id/tv_1"
+            android:layout_below="@+id/tv_1"
+            android:textSize="10sp"/>
+
+        <TextView
+            android:id="@+id/tv_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:text="Precio Unitario:"
+            android:layout_below="@+id/tv_2"
+            android:textSize="10sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/archivo3"
             android:background="@drawable/back"
-            android:textSize="10sp"
             android:textAlignment="center"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv_1"
+            android:layout_toEndOf="@+id/tv_1"
+            android:layout_below="@+id/tv_2"
+            android:textSize="10sp"/>
+
+        <TextView
+            android:id="@+id/tv_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:text="Precio Total:"
+            android:layout_below="@+id/tv_3"
+            android:textSize="10sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/archivo4"
             android:background="@drawable/back"
-            android:textSize="12sp"
             android:textAlignment="center"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv_1"
+            android:layout_toEndOf="@+id/tv_1"
+            android:layout_below="@+id/tv_3"
+            android:textSize="10sp"/>
+
+        <TextView
+            android:id="@+id/tv_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:text="Cantidad Días"
+            android:layout_below="@+id/tv_4"
+            android:textSize="10sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/archivo5"
             android:background="@drawable/back"
-            android:textSize="12sp"
             android:textAlignment="center"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv_1"
+            android:layout_toEndOf="@+id/tv_1"
+            android:layout_below="@+id/tv_4"
+            android:textSize="10sp"/>
+
+        <TextView
+            android:id="@+id/tv_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:text="Motivos"
+            android:layout_below="@+id/tv_5"
+            android:textSize="10sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/archivo6"
             android:background="@drawable/back"
-            android:textSize="12sp"
             android:textAlignment="center"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv_1"
+            android:layout_toEndOf="@+id/tv_1"
+            android:layout_below="@+id/tv_5"
+            android:textSize="10sp"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     </android.support.v7.widget.CardView>
 

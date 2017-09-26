@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="18dp"
     android:id="@+id/detalleCardview">
 
     <LinearLayout
@@ -12,25 +12,23 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_cantidad"
-            android:textSize="10sp"
+            android:id="@+id/tv_cantidad_detalle"
+            android:textSize="13sp"
             android:background="@drawable/back"
             android:textAlignment="center"
             android:layout_gravity="center_vertical"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_fecha_solicitada"
+            android:id="@+id/tv_fecha_detalle"
             android:textAlignment="center"
             android:background="@drawable/back"
-            android:textSize="10sp"
+            android:textSize="13sp"
             android:layout_gravity="center_vertical"/>
 
     </LinearLayout>
-
-
 
 </android.support.v7.widget.CardView>

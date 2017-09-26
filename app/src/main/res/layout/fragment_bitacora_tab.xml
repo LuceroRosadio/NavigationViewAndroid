@@ -1,13 +1,103 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sunil.navigationviewandroid.opcion.valuePlussTray.detalle.fragment.BitacoraTabFragment">
+    tools:context="com.sunil.amcor.opcion.valuePlussTray.detalle.fragment.BitacoraTabFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/txt1"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/back"
+                android:text="Nro"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="10sp"
+                android:layout_gravity="center"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/txt2"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:text="Origen"
+                android:textAlignment="center"
+                android:background="@drawable/back"
+                android:textColor="#000"
+                android:layout_gravity="center"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/txt3"
+                android:layout_width="54dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/back"
+                android:textAlignment="center"
+                android:text="Destino"
+                android:textColor="#000"
+                android:textSize="10sp"
+                android:layout_gravity="center"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/txt4"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:text="Evento"
+                android:textAlignment="center"
+                android:background="@drawable/back"
+                android:textColor="#000"
+                android:layout_gravity="center"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/txt5"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:text="Fecha Hora"
+                android:textAlignment="center"
+                android:background="@drawable/back"
+                android:textColor="#000"
+                android:layout_gravity="center"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/txt6"
+                android:layout_width="54dp"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:text="Usuario"
+                android:textAlignment="center"
+                android:background="@drawable/back"
+                android:textColor="#000"
+                android:layout_gravity="center"
+                android:padding="5dp"/>
+        </TableRow>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/bitacoraRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:scrollbars="vertical">
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -50,7 +50,7 @@
 
         </RelativeLayout>
 
-        <TextView
+        <!--<TextView
             android:padding="5dp"
             android:id="@+id/footer"
             android:layout_width="match_parent"
@@ -58,7 +58,7 @@
             android:text="@string/footer"
             android:gravity="center"
             android:textColor="@color/black"
-            android:layout_gravity="bottom"/>
+            android:layout_gravity="bottom"/>-->
 
     </android.support.design.widget.NavigationView>
 </android.support.v4.widget.DrawerLayout>
