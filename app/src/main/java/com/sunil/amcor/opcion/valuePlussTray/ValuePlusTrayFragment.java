@@ -18,6 +18,7 @@ import com.sunil.amcor.data.UserResponse;
 import com.sunil.amcor.opcion.valuePlussTray.api.RestPedido;
 import com.sunil.amcor.opcion.valuePlussTray.model.OrderRequestResponse;
 import com.sunil.amcor.opcion.valuePlussTray.model.Pedido;
+import com.sunil.amcor.util.Constant;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -75,11 +76,11 @@ public class ValuePlusTrayFragment extends Fragment {
                 .create();
 
         OkHttpClient client = new OkHttpClient.Builder()
-                .addInterceptor(new ValuePlusInterceptor())
+                .addInterceptor(new ValuePlusInterceptor(getContext()))
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://amcore/api/order/")
+                .baseUrl(Constant.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(client)
                 .build();

@@ -18,6 +18,7 @@ import com.sunil.amcor.opcion.valuePlussTray.detalle.fragment.BitacoraTabFragmen
 import com.sunil.amcor.opcion.valuePlussTray.detalle.fragment.DetalleTabFragment;
 import com.sunil.amcor.opcion.valuePlussTray.detalle.fragment.UbicacionTabFragment;
 import com.sunil.amcor.opcion.valuePlussTray.model.Pedido;
+import com.sunil.amcor.util.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,12 +57,12 @@ public class DetalleMainActivity extends AppCompatActivity {
                 .create();
 
         OkHttpClient client = new OkHttpClient.Builder()
-                .addInterceptor(new DetalleInterceptor())
+                .addInterceptor(new DetalleInterceptor(this))
+        //http://node142428-env-1313427.jelasticlw.com.br/RS_Consulta-1.0-SNAPSHOT/consulta/pedido/10
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://node142171-amcor.jelasticlw.com.br/")
-                //.addConverterFactory(SimpleXmlConverterFactory.create())
+                .baseUrl(Constant.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(client)
                 .build();

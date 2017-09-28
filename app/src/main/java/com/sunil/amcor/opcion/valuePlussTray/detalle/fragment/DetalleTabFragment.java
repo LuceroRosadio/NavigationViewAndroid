@@ -1,7 +1,10 @@
 package com.sunil.amcor.opcion.valuePlussTray.detalle.fragment;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
@@ -22,6 +25,7 @@ import com.sunil.amcor.opcion.valuePlussTray.detalle.DetalleAdapter;
 import com.sunil.amcor.opcion.valuePlussTray.detalle.ObResponse;
 import com.sunil.amcor.opcion.valuePlussTray.detalle.PedidoDetalle;
 import com.sunil.amcor.opcion.valuePlussTray.detalle.PedidoResponse;
+import com.sunil.amcor.util.Constant;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -64,6 +68,7 @@ public class DetalleTabFragment extends Fragment {
         Log.d(TAG, "data: "+data);
         pedidos = data.getPedidoResponse();
         Log.d(TAG, "pedidos: "+pedidos);
+
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_detalle_tab, container, false);
 
@@ -109,25 +114,34 @@ public class DetalleTabFragment extends Fragment {
         byte[] imageAsBytes = Base64.decode(encodedDataString.getBytes(), 0);
         base64.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
         //final String base64imagenAdj = pedidos.getImagenAdjunta().toString();
-
+        final Context context=getContext();
         viewFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onclickbase64: ");
                 FileOutputStream fos = null;
-                File a =new File(getContext().getFilesDir(),"ordenes2.jpg");
-                Log.d(TAG, "getContext().getFilesDir(): "+getActivity().getFilesDir());
                 try {
                     if (encodedDataString != null) {
-                        Log.d(TAG, "encodedDataString: "+encodedDataString);
-                        fos = new FileOutputStream(new File(getContext().getFilesDir(),"orden.jpg"));
-                        //fos = getContext().openFileOutput("orden.jpg", Context.DOWNLOAD_SERVICE);
-                        byte[] decodedString = android.util.Base64.decode(encodedDataString, android.util.Base64.DEFAULT);
+
+                        Log.d("Detalle","contentType"+pedidos.getImagenAdjunta().getContentType());
+                        Constant.imagenAdjunta=pedidos.getImagenAdjunta();
+                        File file=new File(context.getExternalFilesDir(null),"orden");
+                        fos = new FileOutputStream(file);
+                        byte[] decodedString = Base64.decode(pedidos.getImagenAdjunta().getBase64(),Base64.DEFAULT);
+                        fos.flush();
                         fos.write(decodedString);
+                        fos.close();
+                        Intent intent =new Intent(Intent.ACTION_VIEW);
+                        Uri targetUri = Uri.fromFile(file);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                        intent.setDataAndType(targetUri,pedidos.getImagenAdjunta().getContentType());
+                        startActivity(intent);
+                        Log.d(TAG, "targetUri: "+targetUri.getPath());
                         Log.d(TAG, "onclickbase65: ");
                         //fos.flush();
                         //fos.write("hola!".getBytes());
-                        fos.close();
+
                     }
                 } catch (Exception e) {
                     Log.d(TAG, "exception: "+e.getMessage());

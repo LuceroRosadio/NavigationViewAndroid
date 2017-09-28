@@ -1,8 +1,17 @@
 package com.sunil.amcor.opcion.valuePlussTray;
 
+import android.content.Context;
 import android.util.Log;
 
+import com.sunil.amcor.R;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.Writer;
 
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
@@ -15,271 +24,38 @@ import okhttp3.ResponseBody;
  */
 
 public class ValuePlusInterceptor implements Interceptor {
+    Context context;
+    ValuePlusInterceptor(Context context){
+        this.context=context;
+    }
     @Override
     public Response intercept(Chain chain) throws IOException {
 
         final String TAG = "ValuePlusIntercetor!";
 
         Response response = null;
+        InputStream is = context.getResources().openRawResource(R.raw.pedidos);
+        Writer writer = new StringWriter();
+        char[] buffer = new char[1024];
+        try {
+            Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            int n;
+            while ((n = reader.read(buffer)) != -1) {
+                writer.write(buffer, 0, n);
+            }
+        } finally {
+            is.close();
+        }
         Log.d(TAG, "response: ");
 
-        String responseString = "{\n" +
-                "            \"pedidos\": [\n" +
-                "                {\n" +
-                "                    \"archivo\": {\n" +
-                "                        \"base64\": \"12334234\",\n" +
-                "                        \"contentType\": \"appliction/pdf\",\n" +
-                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
-                "                    },\n" +
-                "                    \"cantidad\": \"1\",\n" +
-                "                    \"fechaSol\": \"10/01/2017\",\n" +
-                "                    \"numeroPedido\": \"3\",\n" +
-                "                    \"precioTotal\": \"2.9\",\n" +
-                "                    \"producto\": \"marca 1\",\n" +
-                "                    \"unidadMedida\": \"KG\",\n" +
-                "                    \"version\": \"v01\",\n" +
-                "                    \"color\":\"#F78181\",\n" +
-                "                    \"estado\":1,\n" +
-                "                    \"codProducto\":1234,\n" +
-                "                    \"codCliente\":1\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"archivo\": {\n" +
-                "                        \"base64\": \"12334234\",\n" +
-                "                        \"contentType\": \"application/pdf\",\n" +
-                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
-                "                    },\n" +
-                "                    \"cantidad\": \"10\",\n" +
-                "                    \"cliente\": \"LUIS \",\n" +
-                "                    \"fechaSol\": \"10/01/2017\",\n" +
-                "                    \"numeroPedido\": \"8\",\n" +
-                "                    \"precioTotal\": \"14.5\",\n" +
-                "                    \"producto\": \"marca 1\",\n" +
-                "                    \"unidadMedida\": \"KG\",\n" +
-                "                    \"version\": \"v01\",\n" +
-                "                    \"color\":\"blue\",\n" +
-                "                    \"estado\" : 2\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"archivo\": {\n" +
-                "                        \"base64\": \"12334234\",\n" +
-                "                        \"contentType\": \"application/pdf\",\n" +
-                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
-                "                    },\n" +
-                "                    \"cantidad\": \"10\",\n" +
-                "                    \"cliente\": \"LUIS \",\n" +
-                "                    \"fechaSol\": \"10/01/2017\",\n" +
-                "                    \"numeroPedido\": \"8\",\n" +
-                "                    \"precioTotal\": \"14.5\",\n" +
-                "                    \"producto\": \"marca 1\",\n" +
-                "                    \"unidadMedida\": \"KG\",\n" +
-                "                    \"version\": \"v01\",\n" +
-                "                    \"color\":\"blue\",\n" +
-                "                    \"estado\" : 2\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"archivo\": {\n" +
-                "                        \"base64\": \"12334234\",\n" +
-                "                        \"contentType\": \"application/pdf\",\n" +
-                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
-                "                    },\n" +
-                "                    \"cantidad\": \"10\",\n" +
-                "                    \"cliente\": \"LUIS \",\n" +
-                "                    \"fechaSol\": \"10/01/2017\",\n" +
-                "                    \"numeroPedido\": \"8\",\n" +
-                "                    \"precioTotal\": \"14.5\",\n" +
-                "                    \"producto\": \"marca 1\",\n" +
-                "                    \"unidadMedida\": \"KG\",\n" +
-                "                    \"version\": \"v01\",\n" +
-                "                    \"color\":\"blue\",\n" +
-                "                    \"estado\" : 2\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"archivo\": {\n" +
-                "                        \"base64\": \"12334234\",\n" +
-                "                        \"contentType\": \"application/pdf\",\n" +
-                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
-                "                    },\n" +
-                "                    \"cantidad\": \"10\",\n" +
-                "                    \"cliente\": \"LUIS \",\n" +
-                "                    \"fechaSol\": \"10/01/2017\",\n" +
-                "                    \"numeroPedido\": \"8\",\n" +
-                "                    \"precioTotal\": \"14.5\",\n" +
-                "                    \"producto\": \"marca 1\",\n" +
-                "                    \"unidadMedida\": \"KG\",\n" +
-                "                    \"version\": \"v01\",\n" +
-                "                    \"color\":\"blue\",\n" +
-                "                    \"estado\" : 2\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"archivo\": {\n" +
-                "                        \"base64\": \"12334234\",\n" +
-                "                        \"contentType\": \"application/pdf\",\n" +
-                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
-                "                    },\n" +
-                "                    \"cantidad\": \"10\",\n" +
-                "                    \"cliente\": \"LUIS \",\n" +
-                "                    \"fechaSol\": \"10/01/2017\",\n" +
-                "                    \"numeroPedido\": \"8\",\n" +
-                "                    \"precioTotal\": \"14.5\",\n" +
-                "                    \"producto\": \"marca 1\",\n" +
-                "                    \"unidadMedida\": \"KG\",\n" +
-                "                    \"version\": \"v01\",\n" +
-                "                    \"color\":\"blue\",\n" +
-                "                    \"estado\" : 2\n" +
-                "                },{\n" +
-                "                    \"archivo\": {\n" +
-                "                        \"base64\": \"12334234\",\n" +
-                "                        \"contentType\": \"application/pdf\",\n" +
-                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
-                "                    },\n" +
-                "                    \"cantidad\": \"10\",\n" +
-                "                    \"cliente\": \"LUIS \",\n" +
-                "                    \"fechaSol\": \"10/01/2017\",\n" +
-                "                    \"numeroPedido\": \"8\",\n" +
-                "                    \"precioTotal\": \"14.5\",\n" +
-                "                    \"producto\": \"marca 1\",\n" +
-                "                    \"unidadMedida\": \"KG\",\n" +
-                "                    \"version\": \"v01\",\n" +
-                "                    \"color\":\"blue\",\n" +
-                "                    \"estado\" : 2\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"archivo\": {\n" +
-                "                        \"base64\": \"12334234\",\n" +
-                "                        \"contentType\": \"application/pdf\",\n" +
-                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
-                "                    },\n" +
-                "                    \"cantidad\": \"10\",\n" +
-                "                    \"cliente\": \"LUIS \",\n" +
-                "                    \"fechaSol\": \"10/01/2017\",\n" +
-                "                    \"numeroPedido\": \"8\",\n" +
-                "                    \"precioTotal\": \"14.5\",\n" +
-                "                    \"producto\": \"marca 1\",\n" +
-                "                    \"unidadMedida\": \"KG\",\n" +
-                "                    \"version\": \"v01\",\n" +
-                "                    \"color\":\"blue\",\n" +
-                "                    \"estado\" : 2\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"archivo\": {\n" +
-                "                        \"base64\": \"12334234\",\n" +
-                "                        \"contentType\": \"application/pdf\",\n" +
-                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
-                "                    },\n" +
-                "                    \"cantidad\": \"10\",\n" +
-                "                    \"cliente\": \"LUIS \",\n" +
-                "                    \"fechaSol\": \"10/01/2017\",\n" +
-                "                    \"numeroPedido\": \"8\",\n" +
-                "                    \"precioTotal\": \"14.5\",\n" +
-                "                    \"producto\": \"marca 1\",\n" +
-                "                    \"unidadMedida\": \"KG\",\n" +
-                "                    \"version\": \"v01\",\n" +
-                "                    \"color\":\"blue\",\n" +
-                "                    \"estado\" : 2\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"archivo\": {\n" +
-                "                        \"base64\": \"12334234\",\n" +
-                "                        \"contentType\": \"application/pdf\",\n" +
-                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
-                "                    },\n" +
-                "                    \"cantidad\": \"10\",\n" +
-                "                    \"cliente\": \"LUIS \",\n" +
-                "                    \"fechaSol\": \"10/01/2017\",\n" +
-                "                    \"numeroPedido\": \"8\",\n" +
-                "                    \"precioTotal\": \"14.5\",\n" +
-                "                    \"producto\": \"marca 1\",\n" +
-                "                    \"unidadMedida\": \"KG\",\n" +
-                "                    \"version\": \"v01\",\n" +
-                "                    \"color\":\"blue\",\n" +
-                "                    \"estado\" : 2\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"archivo\": {\n" +
-                "                        \"base64\": \"12334234\",\n" +
-                "                        \"contentType\": \"application/pdf\",\n" +
-                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
-                "                    },\n" +
-                "                    \"cantidad\": \"10\",\n" +
-                "                    \"cliente\": \"LUIS \",\n" +
-                "                    \"fechaSol\": \"10/01/2017\",\n" +
-                "                    \"numeroPedido\": \"8\",\n" +
-                "                    \"precioTotal\": \"14.5\",\n" +
-                "                    \"producto\": \"marca 1\",\n" +
-                "                    \"unidadMedida\": \"KG\",\n" +
-                "                    \"version\": \"v01\",\n" +
-                "                    \"color\":\"blue\",\n" +
-                "                    \"estado\" : 2\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"archivo\": {\n" +
-                "                        \"base64\": \"12334234\",\n" +
-                "                        \"contentType\": \"application/pdf\",\n" +
-                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
-                "                    },\n" +
-                "                    \"cantidad\": \"10\",\n" +
-                "                    \"cliente\": \"LUIS \",\n" +
-                "                    \"fechaSol\": \"10/01/2017\",\n" +
-                "                    \"numeroPedido\": \"8\",\n" +
-                "                    \"precioTotal\": \"14.5\",\n" +
-                "                    \"producto\": \"marca 1\",\n" +
-                "                    \"unidadMedida\": \"KG\",\n" +
-                "                    \"version\": \"v01\",\n" +
-                "                    \"color\":\"blue\",\n" +
-                "                    \"estado\" : 2\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"archivo\": {\n" +
-                "                        \"base64\": \"12334234\",\n" +
-                "                        \"contentType\": \"application/pdf\",\n" +
-                "                        \"nombreArchivo\": \"asdas.jpe\"\n" +
-                "                    },\n" +
-                "                    \"cantidad\": \"10\",\n" +
-                "                    \"cliente\": \"LUIS \",\n" +
-                "                    \"fechaSol\": \"10/01/2017\",\n" +
-                "                    \"numeroPedido\": \"8\",\n" +
-                "                    \"precioTotal\": \"14.5\",\n" +
-                "                    \"producto\": \"marca 1\",\n" +
-                "                    \"unidadMedida\": \"KG\",\n" +
-                "                    \"version\": \"v01\",\n" +
-                "                    \"color\":\"blue\",\n" +
-                "                    \"estado\" : 2\n" +
-                "                }\n" +
-                "\n" +
-                "            ]\n" +
-                "            ,\"estados\": [\n" +
-                "                {\n" +
-                "                     \"estado\":1,\n" +
-                "                    \"color\" : \"#ade\",\n" +
-                "                    \"descripcion\": \"Estado 1\"\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"estado\":2,\n" +
-                "                    \"color\" : \"#eee\",\n" +
-                "                    \"descripcion\": \"Estado 2\"\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"estado\":3,\n" +
-                "                    \"color\" : \"#fff\",\n" +
-                "                    \"descripcion\": \"Estado 1\"\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"estado\":4,\n" +
-                "                    \"color\" : \"#eee\",\n" +
-                "                    \"descripcion\": \"Estado 2\"\n" +
-                "                }\n" +
-                "            ]\n" +
-                "        }";
-
-        Log.d(TAG, "123");
+        String jsonString = writer.toString();
 
         response = new Response.Builder()
-                .message(responseString)
+                .message(jsonString)
                 .request(chain.request())
                 .code(200)
                 .protocol(Protocol.HTTP_1_0)
-                .body(ResponseBody.create(MediaType.parse("application/json"), responseString.getBytes()))
+                .body(ResponseBody.create(MediaType.parse("application/json"), jsonString.getBytes()))
                 .addHeader("content-type", "application/json")
                 .build();
 
