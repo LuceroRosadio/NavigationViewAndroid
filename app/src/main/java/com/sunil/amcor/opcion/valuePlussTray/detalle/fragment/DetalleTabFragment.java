@@ -71,7 +71,6 @@ public class DetalleTabFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_detalle_tab, container, false);
-
         pedidoDetalles = pedidos.getPedidosDetalle();
         Log.d(TAG, "pedidoDetalles: "+pedidoDetalles);
 
@@ -95,7 +94,8 @@ public class DetalleTabFragment extends Fragment {
         //fechaSolicitada = (TextView)view.findViewById(R.id.tv_fecha_detalle);
         coordinatorLayout = (CoordinatorLayout)view.findViewById(R.id.tab_detalle_coordinator);
         viewFile = (Button)view.findViewById(R.id.btn_orden_compra);
-
+        if(Constant.HISTORICA_QUERY.equals(Constant.codOpcion))
+        viewFile.setVisibility(View.GONE);
 
         Log.d(TAG, "numPedido: "+pedidos.getNumeroPedido());
         Log.d(TAG, "producto: "+pedidos.getProducto());

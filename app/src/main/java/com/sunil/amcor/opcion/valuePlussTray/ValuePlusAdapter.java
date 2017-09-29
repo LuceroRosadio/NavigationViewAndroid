@@ -60,9 +60,6 @@ public class ValuePlusAdapter extends RecyclerView.Adapter<ValuePlusAdapter.Valu
         holder.cantidadDias.setText(pedido.getCantidadDias());
         holder.motivo.setText(pedido.getEstadoMotivo());
 
-        /*holder.base64.setText(pedido.getArchivo().getBase64());
-        holder.contentType.setText(pedido.getArchivo().getContentType());
-        holder.nombreArchivo.setText(pedido.getArchivo().getNombreArchivo());*/
 
         Log.d(TAG,"holder: "+pedido.toString());
 
@@ -107,26 +104,10 @@ public class ValuePlusAdapter extends RecyclerView.Adapter<ValuePlusAdapter.Valu
             public void onClick(View v) {
                 Intent intent = new Intent(activity, DetalleMainActivity.class);
                 intent.putExtra("pedido", pedido);
-                //Bundle bundle = new Bundle();
-                //bundle.putParcelable("pedido", pedido);
-                //AddCartFragment addCartfragmentNew = new AddCartFragment();
-                //addCartfragmentNew.setArguments(bundle);
-                //Log.d(TAG, "bundle: "+bundle);
-                //addCartfragmentNew.actualizar();
                 activity.startActivity(intent);
             }
         });
 
-        /*holder.archivo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG,"base64");
-
-                holder.base64.setVisibility(View.VISIBLE);
-                holder.contentType.setVisibility(View.VISIBLE);
-                holder.nombreArchivo.setVisibility(View.VISIBLE);
-            }
-        });*/
     }
 
     @Override
@@ -157,9 +138,6 @@ public class ValuePlusAdapter extends RecyclerView.Adapter<ValuePlusAdapter.Valu
         TextView cantidadDiasTextView;
         TextView motivoTextView;
 
-        /*TextView base64;
-        TextView contentType;
-        TextView nombreArchivo;*/
         CheckBox archivo;
         CheckBox verDetalle;
 

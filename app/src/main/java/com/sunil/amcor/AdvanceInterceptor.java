@@ -24,9 +24,9 @@ import okhttp3.ResponseBody;
  * Created by Lucero on 09/08/2017.
  */
 
-public class LoginInterceptor implements Interceptor {
+public class AdvanceInterceptor implements Interceptor {
     Context context;
-    LoginInterceptor(Context context){
+    AdvanceInterceptor(Context context){
         this.context=context;
     }
 //aca dentro de chain

@@ -1,5 +1,6 @@
 package com.sunil.amcor.opcion.valuePlussTray.detalle;
 
+import android.app.ProgressDialog;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -37,6 +38,7 @@ public class DetalleMainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private static final String TAG = "DetalleMain";
     private PedidoResponse pedidos = new PedidoResponse();
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,11 @@ public class DetalleMainActivity extends AppCompatActivity {
         Pedido pedido = getIntent().getExtras().getParcelable("pedido");
 
         //setTitle("Detalle Pedido");
-
+        progressDialog = new ProgressDialog(DetalleMainActivity.this,
+                R.style.AppTheme_Dark_Dialog);
+        progressDialog.setMessage("Cargando...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
         loadJsonDetalle(pedido);
     }
 
@@ -76,6 +82,7 @@ public class DetalleMainActivity extends AppCompatActivity {
                 Log.d(TAG, response.code() +"");
                 switch (response.code()) {
                     case 200:
+
                         ObResponse data = response.body();
                         Log.d(TAG, data.toString());
                         //pedidos = data.getPedidoResponse();
@@ -83,9 +90,8 @@ public class DetalleMainActivity extends AppCompatActivity {
                         //recyclerViewDetalle.setAdapter(detalleAdapter);
                         goTab(data);
                         break;
-                    case 401:
-                        break;
                     default:
+                        progressDialog.dismiss();
                         break;
                 }
             }
@@ -127,6 +133,7 @@ public class DetalleMainActivity extends AppCompatActivity {
         bitacoraTabFragment.setArguments(bundle);
 
         viewPager.setAdapter(adapter);
+        progressDialog.dismiss();
 
     }
 

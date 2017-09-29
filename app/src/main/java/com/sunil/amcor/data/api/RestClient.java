@@ -13,6 +13,6 @@ import retrofit2.http.POST;
 
 public interface RestClient {
 
-    @POST("authenticate")
+    @POST("RS_User/login/user")
     Call<UserResponse> authenticate(@Body UserLogin userLogin);
 }

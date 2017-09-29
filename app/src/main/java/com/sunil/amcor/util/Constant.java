@@ -8,7 +8,8 @@ import com.sunil.amcor.opcion.valuePlussTray.detalle.ImagenAdjunta;
 
 public class Constant {
     public static final String BASE_URL="http://node142428-env-1313427.jelasticlw.com.br/";
+    public static final String HISTORICA_QUERY="CHP";
     public static ImagenAdjunta imagenAdjunta;
     public static String base64;
-    public static String contentType;
+    public static String codOpcion;
 }

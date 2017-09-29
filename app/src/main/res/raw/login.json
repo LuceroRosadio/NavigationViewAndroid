@@ -1,0 +1,55 @@
+{
+    "usuario": {
+        "clientes": [
+            {
+                "codCliente": 1,
+                "correo": "jose.par.val@gmail.com",
+                "nombreCliente": "P & G - PERU"
+            },
+            {
+                "codCliente": 2,
+                "correo": "jose.par.val@gmail.com",
+                "nombreCliente": "KIMBERLY CLARK PERU"
+            },
+            {
+                "codCliente": 3,
+                "correo": "jose.par.val@gmail.com",
+                "nombreCliente": "NESTLE"
+            },
+            {
+                "codCliente": 4,
+                "correo": "jose.par.val@gmail.com",
+                "nombreCliente": "ALICORP-O"
+            }
+        ],
+        "codPerfil": "CL",
+        "codUsuario": "LHUAPAYA",
+        "modulos": [      
+            {
+                "codModulo": "SEGPROD",
+                "nombreModulo": "Seguimiento de Pedido",
+                "opciones": [
+                    {
+                        "codOpcion": "CHP",
+                        "estadoOpcion": "historicaQuery",
+                        "nombreOpcion": "Consultar Ubicación de Pedido"
+                    }
+                ]
+            },
+            {
+                "codModulo": "APRPED",
+                "nombreModulo": "Gestión de Solicitud",
+                "opciones": [
+                    {
+                        "codOpcion": "BC",
+                        "estadoOpcion": "commercialTray",
+                        "nombreOpcion": "Bandeja Comercial"
+                    }
+                ]
+            }
+        ],
+        "nombresUsuario": "Luis Huapaya"
+    },
+    "token": "12345543"
+}
+

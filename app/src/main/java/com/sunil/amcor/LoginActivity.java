@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.sunil.amcor.data.UserResponse;
 import com.sunil.amcor.data.api.RestClient;
+import com.sunil.amcor.util.Constant;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
@@ -107,11 +108,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .create();
         OkHttpClient client = new OkHttpClient.Builder()
-                .addInterceptor(new FakeInterceptor())
+                .addInterceptor(new LoginInterceptor(this))
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://amcore/api/")
+                .baseUrl(Constant.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(client)
                 .build();

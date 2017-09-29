@@ -1,12 +1,15 @@
 package com.sunil.amcor;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Lucero on 09/08/2017.
  */
 
 public class UserLogin {
-
+    @SerializedName("codUsuario")
     private String username;
+    @SerializedName("contraseña")
     private String password;
 
     public UserLogin() {

@@ -24,6 +24,7 @@ import com.sunil.amcor.fragment.OrderRequestFragment;
 import com.sunil.amcor.fragment.QueryTrackingFragment;
 import com.sunil.amcor.opcion.createOrder.ContainerFragment;
 import com.sunil.amcor.opcion.valuePlussTray.ValuePlusTrayFragment;
+import com.sunil.amcor.util.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,8 +55,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
     //OrderRequestFragment fragment;
 
     public List<Modulo> moduloList = new ArrayList<>();
-
+    @BindView(R.id.nav_usuario)
     TextView usuario;
+
     UserResponse data;
 
     @Override
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
         Log.d(TAG, "data:" +data);
         Log.d(TAG, "usuario: " +data.getUsuario());
         ButterKnife.bind(this);
-
+        usuario.setText(data.getUsuario().getNombresUsuario());
         moduloList = data.getUsuario().getModuloList();
 
         setToolbar();
@@ -97,28 +99,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
 
         manager.executePendingTransactions();
 
-        //fragment = new TitleFragment();
-        /*getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frame, fragment, "TitleFragment")
-                //.add(R.id.frame, fragment)
-                .commit();*/
-        //FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        //fragmentTransaction.replace(R.id.frame, fragment, "TitleFragment").commit();
     }
 
-    /*private List<TitleMenu> getList() {
-        List<TitleMenu> list = new ArrayList<>();
-        for (int i = 0; i < names.length; i++) {
-            List<SubTitle> subTitles = new ArrayList<>();
-            for (int j = 0; j < subNames.length; j++) {
-                SubTitle subTitle = new SubTitle(subNames[j]);
-                subTitles.add(subTitle);
-            }
-            TitleMenu model = new TitleMenu(names[i], subTitles, null);
-            list.add(model);
-        }
-        return list;
-    }*/
 
     private List<TitleMenu> getModuloMenu(List<Modulo> moduloList) {
         List<TitleMenu> moduloMenus = new ArrayList<>();
@@ -144,16 +126,13 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
     @Override
     public void onChildClick(int position, OpcionModulo option) {
         Log.d(TAG, "position" +position);
-        //Log.d(TAG, "opcion" +opcion);
-        //String name = subNames[position];
         drawerLayout.closeDrawers();
-        //fragment.setTitle(name);
-        /*QueryTrackingFragment queryTrackingFragment = new QueryTrackingFragment();
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frame, queryTrackingFragment)
-                .commit();*/
-
+        Bundle bundle=new Bundle();
+        bundle.putString("codOpcion",option.getCodOpcion());
+        Constant.codOpcion=option.getCodOpcion();
+        bundle.putParcelable("data", data);
         switch (option.getEstadoOpcion()) {
+
             case "orderRequest":
                 OrderRequestFragment orderRequestFragment = new OrderRequestFragment();
                 getSupportFragmentManager().beginTransaction()
@@ -161,10 +140,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
                         .addToBackStack("orderRequestFragment")
                         .commit();
                 setTitle(option.getNombreOpcion());
-                /*FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.frame, orderRequestFragment, "orderRequestFragment")
-                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                        .commit();*/
                 break;
             case "queryTracking":
                 QueryTrackingFragment queryTrackingFragment = new QueryTrackingFragment();
@@ -173,12 +148,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
                         .addToBackStack("querTrackingFragment")
                         .commit();
                 setTitle(option.getNombreOpcion());
-                /*FragmentTransaction fragmentTransaction1 = getFragmentManager().beginTransaction();
-                fragmentTransaction1.replace(R.id.frame, queryTrackingFragment, "querTrackingFragment").commit();*/
                 break;
-            case "valuePlussTray":
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("data", data);
+            case "commercialTray":
+
                 ValuePlusTrayFragment valuePlusTrayFragment = new ValuePlusTrayFragment();
                 valuePlusTrayFragment.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction()
@@ -189,11 +161,14 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
                 /*FragmentTransaction fragmentTransaction2 = getFragmentManager().beginTransaction();
                 fragmentTransaction2.replace(R.id.frame, valuePlusTrayFragment, "valuePlusTrayFragment").commit();*/
                 break;
-            case "createOrder":
-                ContainerFragment containerFragment = new ContainerFragment();
+            case "historicaQuery":
+
+                ValuePlusTrayFragment historicaQuery = new ValuePlusTrayFragment();
+
+                historicaQuery.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frame, containerFragment, "containerFragment")
-                        .addToBackStack("containerFragment")
+                        .replace(R.id.frame, historicaQuery, "valuePlusTrayFragment")
+                        .addToBackStack("valuePlusTrayFragment")
                         .commit();
                 setTitle(option.getNombreOpcion());
                 break;

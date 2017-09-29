@@ -1,6 +1,7 @@
 package com.sunil.amcor.opcion.valuePlussTray;
 
 
+import android.app.ProgressDialog;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -42,7 +43,7 @@ public class ValuePlusTrayFragment extends Fragment {
     private RecyclerView recyclerViewValuePlus;
     private List<Pedido> pedidos = new ArrayList<>();
     UserResponse userData;
-
+    String codOpcion;
     public ValuePlusTrayFragment() {
         // Required empty public constructor
     }
@@ -55,6 +56,7 @@ public class ValuePlusTrayFragment extends Fragment {
         Bundle bundle = getArguments();
         Log.d(TAG, "bundle: "+bundle);
         userData = bundle.getParcelable("data");
+        codOpcion=bundle.getString("codOpcion");
 
         View view = inflater.inflate(R.layout.fragment_value_plus_tray, container, false);
 
@@ -88,13 +90,18 @@ public class ValuePlusTrayFragment extends Fragment {
         Map<String, String> data = new HashMap<>();
         data.put("codUsuario", userData.getUsuario().getCodUsuario());
         data.put("codPerfil", userData.getUsuario().getCodPerfil());
-        data.put("codOpcion", "VP");
+        data.put("codOpcion", codOpcion);
 
         RestPedido restPedido = retrofit.create(RestPedido.class);
         Call<OrderRequestResponse> call = restPedido.getOrder(data);
 
         Log.d(TAG, "userDAta"+userData);
-
+        Log.d(TAG, "data:"+data);
+        final ProgressDialog progressDialog = new ProgressDialog(getContext(),
+                R.style.AppTheme_Dark_Dialog);
+        progressDialog.setMessage("Cargando...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
         call.enqueue(new Callback<OrderRequestResponse>() {
             @Override
             public void onResponse(Call<OrderRequestResponse> call, Response<OrderRequestResponse> response) {
@@ -106,10 +113,13 @@ public class ValuePlusTrayFragment extends Fragment {
                         pedidos = data.getPedidoList();
                         ValuePlusAdapter valuePlusAdapter = new ValuePlusAdapter(pedidos, getActivity());
                         recyclerViewValuePlus.setAdapter(valuePlusAdapter);
+                        progressDialog.dismiss();
                         break;
                     case 401:
+                        progressDialog.dismiss();
                         break;
                     default:
+                        progressDialog.dismiss();
                         break;
                 }
             }
