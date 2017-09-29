@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Base64;
 import android.util.Log;
+import android.util.StringBuilderPrinter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.sunil.amcor.R;
 import com.sunil.amcor.opcion.valuePlussTray.detalle.ObResponse;
@@ -24,6 +26,7 @@ public class UbicacionTabFragment extends Fragment {
     private PedidoResponse pedidos = new PedidoResponse();
 
     ImageView ubicacion;
+    TextView tvUbicacion;
 
     public UbicacionTabFragment() {
         // Required empty public constructor
@@ -41,9 +44,11 @@ public class UbicacionTabFragment extends Fragment {
         Log.d(TAG, "pedidos: "+pedidos);
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_ubicacion_tab, container, false);
-
         ubicacion = (ImageView)view.findViewById(R.id.img_ubicacion);
-
+        tvUbicacion = (TextView)view.findViewById(R.id.tv_ubicacionpedido);
+        StringBuilder stringBuilder=new StringBuilder();
+        stringBuilder.append("Tu pedido #").append(pedidos.getNumeroPedido()).append(" se encuentra en :");
+        tvUbicacion.setText(stringBuilder.toString());
         String encodedDataString = pedidos.getImagenUbicacion();
         Log.d(TAG, "imagnUbic: "+pedidos.getImagenUbicacion());
         Log.d(TAG, "encodedDataString: "+encodedDataString);

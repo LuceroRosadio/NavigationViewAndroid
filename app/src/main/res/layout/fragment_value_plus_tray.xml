@@ -79,7 +79,7 @@
             android:layout_weight="0.10"
             android:layout_height="match_parent"
             android:textSize="10sp"
-            android:text="Cantidad"
+            android:text="Cant"
             android:paddingTop="14dp"
             android:textAlignment="center"
             android:background="@drawable/back"
