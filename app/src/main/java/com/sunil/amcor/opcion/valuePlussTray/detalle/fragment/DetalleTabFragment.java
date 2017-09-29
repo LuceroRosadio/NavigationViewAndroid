@@ -19,8 +19,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.sunil.amcor.R;
+import com.sunil.amcor.data.api.RestClient;
 import com.sunil.amcor.opcion.valuePlussTray.detalle.DetalleAdapter;
 import com.sunil.amcor.opcion.valuePlussTray.detalle.ObResponse;
 import com.sunil.amcor.opcion.valuePlussTray.detalle.PedidoDetalle;
@@ -31,6 +36,13 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.OkHttpClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,6 +56,8 @@ public class DetalleTabFragment extends Fragment {
     private PedidoResponse pedidos = new PedidoResponse();
     private List<PedidoDetalle> pedidoDetalles = new ArrayList<>();
 
+    private PedidoDtll pedidoDtll = new PedidoDtll();
+
     TextView numPedido;
     TextView producto;
     TextView unidad;
@@ -55,6 +69,7 @@ public class DetalleTabFragment extends Fragment {
     TextView fechaSolicitada;
     ImageView base64;
     Button viewFile;
+    Button avanzar;
 
     public DetalleTabFragment() {
     }
@@ -91,11 +106,9 @@ public class DetalleTabFragment extends Fragment {
         total = (TextView)view.findViewById(R.id.tv_total);
         cardView = (CardView)view.findViewById(R.id.detalleCardview);
         base64= (ImageView)view.findViewById(R.id.img_detalle);
-        //cantidad = (TextView)view.findViewById(R.id.tv_cantidad_detalle);
-        //fechaSolicitada = (TextView)view.findViewById(R.id.tv_fecha_detalle);
         coordinatorLayout = (CoordinatorLayout)view.findViewById(R.id.tab_detalle_coordinator);
         viewFile = (Button)view.findViewById(R.id.btn_orden_compra);
-
+        avanzar = (Button)view.findViewById(R.id.btn_avanzar);
 
         Log.d(TAG, "numPedido: "+pedidos.getNumeroPedido());
         Log.d(TAG, "producto: "+pedidos.getProducto());
@@ -113,7 +126,7 @@ public class DetalleTabFragment extends Fragment {
         final String encodedDataString = pedidos.getImagenProducto().toString();
         byte[] imageAsBytes = Base64.decode(encodedDataString.getBytes(), 0);
         base64.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
-        //final String base64imagenAdj = pedidos.getImagenAdjunta().toString();
+
         final Context context=getContext();
         viewFile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,8 +152,6 @@ public class DetalleTabFragment extends Fragment {
                         startActivity(intent);
                         Log.d(TAG, "targetUri: "+targetUri.getPath());
                         Log.d(TAG, "onclickbase65: ");
-                        //fos.flush();
-                        //fos.write("hola!".getBytes());
 
                     }
                 } catch (Exception e) {
@@ -154,54 +165,19 @@ public class DetalleTabFragment extends Fragment {
             }
         });
 
-        return view;
-    }
-
-    public void findViews(View view) {}
-    /*private void loadJsonDetalle() {
-        Log.d(TAG, "loadJsonDetalle!!!");
-        Gson gson = new GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                .create();
-
-        OkHttpClient client = new OkHttpClient.Builder()
-                .addInterceptor(new DetalleInterceptor())
-                .build();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://amcore/api/order/")
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .client(client)
-                .build();
-
-        RestDetalle restDetalle = retrofit.create(RestDetalle.class);
-        Call<ObResponse> call = restDetalle.getDetalle();
-        Log.d(TAG, "call2 request: "+call.request());
-        call.enqueue(new Callback<ObResponse>() {
+        avanzar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResponse(Call<ObResponse> call, Response<ObResponse> response) {
-                Log.d(TAG, response.code() +"");
-                switch (response.code()) {
-                    case 200:
-                        ObResponse data = response.body();
-                        Log.d(TAG, "detalletabfragment");
-                        pedidos = data.getPedidoResponse();
-                        Log.d(TAG, pedidos.toString());
-                        DetalleAdapter detalleAdapter = new DetalleAdapter(pedidos, getActivity());
-                        recyclerViewDetalle.setAdapter(detalleAdapter);
-                        break;
-                    case 401:
-                        break;
-                    default:
-                        break;
-                }
-            }
+            public void onClick(View v) {
+                //loadJsonPedidoDetalle();
 
-            @Override
-            public void onFailure(Call<ObResponse> call, Throwable t) {
-
+                Toast.makeText(getActivity(), "El pedido 19, fue enviado a la bandeja de Cliente.",
+                        Toast.LENGTH_LONG).show();
             }
         });
 
-    }*/
+        return view;
+    }
+
+
+
 }

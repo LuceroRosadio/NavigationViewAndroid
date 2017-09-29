@@ -6,22 +6,14 @@
     tools:context="com.sunil.amcor.opcion.valuePlussTray.detalle.fragment.DetalleTabFragment"
     android:id="@+id/tab_detalle_coordinator">
 
-<LinearLayout
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp">
 
-    <!--<android.support.v7.widget.RecyclerView
-        android:id="@+id/detalleRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:scrollbars="vertical">
-    </android.support.v7.widget.RecyclerView> -->
-
     <LinearLayout
+        android:id="@+id/linear1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -131,10 +123,12 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linear2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:layout_below="@+id/linear1">
 
         <TextView
             android:layout_width="wrap_content"
@@ -185,9 +179,22 @@
         android:text="Ver Orden de Compra"
         android:padding="10dp"
         android:textColor="@color/white"
-        android:background="#26A69A"/>
+        android:background="#26A69A"
+        android:layout_below="@+id/linear2"/>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btn_avanzar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Avanzar"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:background="#26A69A"
+        android:layout_below="@+id/linear2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
 

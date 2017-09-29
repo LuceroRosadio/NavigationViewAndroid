@@ -58,7 +58,6 @@ public class DetalleMainActivity extends AppCompatActivity {
 
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(new DetalleInterceptor(this))
-        //http://node142428-env-1313427.jelasticlw.com.br/RS_Consulta-1.0-SNAPSHOT/consulta/pedido/10
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -78,9 +77,6 @@ public class DetalleMainActivity extends AppCompatActivity {
                     case 200:
                         ObResponse data = response.body();
                         Log.d(TAG, data.toString());
-                        //pedidos = data.getPedidoResponse();
-                        //DetalleAdapter detalleAdapter = new DetalleAdapter(pedidos, getActivity());
-                        //recyclerViewDetalle.setAdapter(detalleAdapter);
                         goTab(data);
                         break;
                     case 401:
@@ -115,8 +111,6 @@ public class DetalleMainActivity extends AppCompatActivity {
         DetalleTabFragment detalleTabFragment = new DetalleTabFragment();
         adapter.addFragment(detalleTabFragment, "DETALLE");
         detalleTabFragment.setArguments(bundle);
-
-        Log.d(TAG, "holaaa ");
 
         UbicacionTabFragment ubicacionTabFragment = new UbicacionTabFragment();
         adapter.addFragment(ubicacionTabFragment, "UBICACIÓN");

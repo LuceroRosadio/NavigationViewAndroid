@@ -21,9 +21,6 @@ public class FakeInterceptor implements Interceptor {
 //aca dentro de chain
     @Override
     public Response intercept(Chain chain) throws IOException {
-        //chain.request().body() //aca esta la info que le enviaste desde aki
-        //cuando tu llamas recien al api es decir a ese metodo  este interceptor lo captura
-        //es en este objeto donde tienes el request
 
         Response response = null;
 
@@ -152,8 +149,6 @@ public class FakeInterceptor implements Interceptor {
         }
     }
 
-    //este metodo no se que hace :p
-    //el request que le envias  , especificamente los datos que le envias lo convierte en un string con formato json
     private String bodyToString(final Request request) {
         try {
             final Request copy = request.newBuilder().build();
