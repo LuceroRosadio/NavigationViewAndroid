@@ -130,6 +130,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
         Bundle bundle=new Bundle();
         bundle.putString("codOpcion",option.getCodOpcion());
         Constant.codOpcion=option.getCodOpcion();
+        Constant.codPerfil=data.getUsuario().getCodPerfil();
+        Constant.codUsuario=data.getUsuario().getCodUsuario();
         bundle.putParcelable("data", data);
         switch (option.getEstadoOpcion()) {
 
@@ -229,4 +231,5 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
                     }
                 });
     }*/
+
 }

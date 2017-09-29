@@ -12,4 +12,6 @@ public class Constant {
     public static ImagenAdjunta imagenAdjunta;
     public static String base64;
     public static String codOpcion;
+    public static String codUsuario;
+    public static String codPerfil;
 }

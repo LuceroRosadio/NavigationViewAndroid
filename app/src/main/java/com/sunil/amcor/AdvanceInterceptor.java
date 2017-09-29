@@ -26,84 +26,55 @@ import okhttp3.ResponseBody;
 
 public class AdvanceInterceptor implements Interceptor {
     Context context;
-    AdvanceInterceptor(Context context){
+    public AdvanceInterceptor(Context context){
         this.context=context;
     }
-//aca dentro de chain
+
     @Override
     public Response intercept(Chain chain) throws IOException {
-        //chain.request().body() //aca esta la info que le enviaste desde aki
-        //cuando tu llamas recien al api es decir a ese metodo  este interceptor lo captura
-        //es en este objeto donde tienes el request
-
         Response response = null;
-        final String TAG = "LoginIntercetor!";
-        InputStream is = context.getResources().openRawResource(R.raw.login);
+        final String TAG = "AdvanceIntercetor!";
+        InputStream is = context.getResources().openRawResource(R.raw.advance);
         Writer writer = new StringWriter();
         char[] buffer = new char[1024];
         try {
+            Thread.sleep(2000l);
             Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
             int n;
             while ((n = reader.read(buffer)) != -1) {
                 writer.write(buffer, 0, n);
             }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         } finally {
             is.close();
         }
         Log.d(TAG, "response: ");
 
         String jsonString = writer.toString();
-        Gson gson = new Gson();
-        UserLogin userLogin=gson.fromJson(bodyToString(chain.request()),UserLogin.class);
 
 
-        Log.i("Parametros",bodyToString(chain.request()));
-        int code;
-        if("test".equals(userLogin.getUsername()) && "test".equals(userLogin.getPassword())){
-            code=200;
-        }
-        else{
-            code=401;
-        }
 
         response = new Response.Builder()
-                .code(code)
+                .code(200)
                 .message(jsonString)
                 .request(chain.request())
                 .protocol(Protocol.HTTP_1_0)
                 .body(ResponseBody.create(MediaType.parse("application/json"), jsonString.getBytes()))
                 .addHeader("content-type", "application/json")
                 .build();
-
-        this.sleep();
-        Log.d("NetworkSlowdown", "Network slowdown done. Proceeding chain");
+        //this.sleep();
 
         return response;
     }
-
     private void sleep() {
         try {
             Log.d("NetworkSlowdown", "Sleeping for 3 seconds");
-            Thread.sleep(1 * 1000);
+            Thread.sleep(2 * 1000);
         } catch (InterruptedException e) {
             Log.e("NetworkSlowdown", "Interrupted", e);
         }
     }
 
-    //este metodo no se que hace :p
-    //el request que le envias  , especificamente los datos que le envias lo convierte en un string con formato json
-    private String bodyToString(final Request request) {
-        try {
-            final Request copy = request.newBuilder().build();
-            final okio.Buffer buffer = new okio.Buffer();
 
-            if (copy.body() != null) {
-                copy.body().writeTo(buffer);
-                return buffer.readUtf8();
-            }
-
-            return "";
-        } catch (final IOException e) {
-            return "bodyToString error.";
-        }}
 }

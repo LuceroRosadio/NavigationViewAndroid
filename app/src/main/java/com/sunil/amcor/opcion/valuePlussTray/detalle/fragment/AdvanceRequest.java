@@ -1,22 +1,26 @@
 package com.sunil.amcor.opcion.valuePlussTray.detalle.fragment;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Lucero on 28/09/2017.
  */
 
-public class PedidoDtll {
-
+public class AdvanceRequest {
+    @SerializedName("codPerfil")
     private String codigoPerfil;
+    @SerializedName("codUsuario")
     private String codigoUsuario;
-    private String numPedido;
+    @SerializedName("numeroPedido")
+    private String numeroPedido;
 
-    public PedidoDtll() {
+    public AdvanceRequest() {
     }
 
-    public PedidoDtll(String codigoPerfil, String codigoUsuario, String numPedido) {
+    public AdvanceRequest(String codigoPerfil, String codigoUsuario, String numeroPedido) {
         this.codigoPerfil = codigoPerfil;
         this.codigoUsuario = codigoUsuario;
-        this.numPedido = numPedido;
+        this.numeroPedido = numeroPedido;
     }
 
     @Override
@@ -25,7 +29,7 @@ public class PedidoDtll {
         return "PedidoDtll{" +
                 "codigoPerfil='" + codigoPerfil + '\'' +
                 ", codigoUsuario='" + codigoUsuario + '\'' +
-                ", numPedido='" + numPedido + '\'' +
+                ", numeroPedido='" + numeroPedido + '\'' +
                 '}';
     }
 
@@ -45,11 +49,11 @@ public class PedidoDtll {
         this.codigoUsuario = codigoUsuario;
     }
 
-    public String getNumPedido() {
-        return numPedido;
+    public String getNumeroPedido() {
+        return numeroPedido;
     }
 
-    public void setNumPedido(String numPedido) {
-        this.numPedido = numPedido;
+    public void setNumeroPedido(String numeroPedido) {
+        this.numeroPedido = numeroPedido;
     }
 }

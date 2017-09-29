@@ -8,31 +8,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
 
         <TableRow
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="10dp">
+            android:layout_height="40dp"
+            android:layout_width="match_parent">
 
             <TextView
                 android:id="@+id/txt1"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="0.10"
+                android:layout_height="match_parent"
                 android:background="@drawable/back"
                 android:text="Nro"
                 android:textAlignment="center"
                 android:textColor="#000"
-                android:textSize="10sp"
+                android:textSize="13sp"
                 android:layout_gravity="center"
                 android:padding="5dp"/>
 
             <TextView
                 android:id="@+id/txt2"
-                android:layout_width="48dp"
-                android:layout_height="wrap_content"
-                android:textSize="10sp"
+                android:layout_width="0dp"
+                android:layout_weight="0.20"
+                android:layout_height="match_parent"
+                android:textSize="13sp"
                 android:text="Origen"
                 android:textAlignment="center"
                 android:background="@drawable/back"
@@ -42,21 +43,23 @@
 
             <TextView
                 android:id="@+id/txt3"
-                android:layout_width="54dp"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="0.20"
+                android:layout_height="match_parent"
                 android:background="@drawable/back"
                 android:textAlignment="center"
                 android:text="Destino"
                 android:textColor="#000"
-                android:textSize="10sp"
+                android:textSize="13sp"
                 android:layout_gravity="center"
                 android:padding="5dp"/>
 
             <TextView
                 android:id="@+id/txt4"
-                android:layout_width="52dp"
-                android:layout_height="wrap_content"
-                android:textSize="10sp"
+                android:layout_width="0dp"
+                android:layout_weight="0.20"
+                android:layout_height="match_parent"
+                android:textSize="13sp"
                 android:text="Evento"
                 android:textAlignment="center"
                 android:background="@drawable/back"
@@ -66,9 +69,10 @@
 
             <TextView
                 android:id="@+id/txt5"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:textSize="10sp"
+                android:layout_width="0dp"
+                android:layout_weight="0.20"
+                android:layout_height="match_parent"
+                android:textSize="13sp"
                 android:text="Fecha Hora"
                 android:textAlignment="center"
                 android:background="@drawable/back"
@@ -78,9 +82,10 @@
 
             <TextView
                 android:id="@+id/txt6"
-                android:layout_width="54dp"
-                android:layout_height="wrap_content"
-                android:textSize="10sp"
+                android:layout_width="0dp"
+                android:layout_weight="0.20"
+                android:layout_height="match_parent"
+                android:textSize="13sp"
                 android:text="Usuario"
                 android:textAlignment="center"
                 android:background="@drawable/back"
@@ -93,8 +98,6 @@
             android:id="@+id/bitacoraRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="10dp"
             android:scrollbars="vertical">
         </android.support.v7.widget.RecyclerView>
 

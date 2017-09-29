@@ -47,7 +47,6 @@ public class DetalleMainActivity extends AppCompatActivity {
 
         Pedido pedido = getIntent().getExtras().getParcelable("pedido");
 
-        //setTitle("Detalle Pedido");
         progressDialog = new ProgressDialog(DetalleMainActivity.this,
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setMessage("Cargando...");

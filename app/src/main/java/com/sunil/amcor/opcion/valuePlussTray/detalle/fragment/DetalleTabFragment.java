@@ -1,13 +1,18 @@
 package com.sunil.amcor.opcion.valuePlussTray.detalle.fragment;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,6 +29,7 @@ import android.widget.Toast;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.sunil.amcor.AdvanceInterceptor;
 import com.sunil.amcor.R;
 import com.sunil.amcor.data.api.RestClient;
 import com.sunil.amcor.opcion.valuePlussTray.detalle.DetalleAdapter;
@@ -56,7 +62,7 @@ public class DetalleTabFragment extends Fragment {
     private PedidoResponse pedidos = new PedidoResponse();
     private List<PedidoDetalle> pedidoDetalles = new ArrayList<>();
 
-    private PedidoDtll pedidoDtll = new PedidoDtll();
+    private AdvanceRequest advanceRequest = new AdvanceRequest();
 
     TextView numPedido;
     TextView producto;
@@ -169,16 +175,91 @@ public class DetalleTabFragment extends Fragment {
         avanzar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //loadJsonPedidoDetalle();
-
-                Toast.makeText(getActivity(), "El pedido 19, fue enviado a la bandeja de Cliente.",
-                        Toast.LENGTH_LONG).show();
+                advancePedido(v);
             }
         });
 
         return view;
     }
 
+    public void advancePedido(final View v) {
+        Log.d(TAG, "advancePedido");
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage(R.string.message_confirm);
+        builder.setPositiveButton(R.string.avanzar, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                final ProgressDialog progressDialog = new ProgressDialog(v.getContext(),
+                        R.style.AppTheme_Dark_Dialog);
+                progressDialog.setMessage("Cargando...");
+                progressDialog.setIndeterminate(true);
+                progressDialog.setCancelable(false);
+                progressDialog.show();
+                Gson gson = new GsonBuilder()
+                        .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                        .create();
+
+                OkHttpClient client = new OkHttpClient.Builder()
+                        .addInterceptor(new AdvanceInterceptor(getContext()))
+                        .build();
+
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(Constant.BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create(gson))
+                        .client(client)
+                        .build();
+
+                RestClient restClient = retrofit.create(RestClient.class);
+                advanceRequest.setCodigoPerfil(Constant.codPerfil);
+                advanceRequest.setCodigoUsuario(Constant.codUsuario);
+                advanceRequest.setNumeroPedido(pedidos.getNumeroPedido());
+                Call<AdvanceResponse> call = restClient.advance(advanceRequest);
+                call.enqueue(new Callback<AdvanceResponse>() {
+                    @Override
+                    public void onResponse(Call<AdvanceResponse> call, Response<AdvanceResponse> response) {
+                        Log.d(TAG, response.code() +"");
+                        switch (response.code()) {
+                            case 200:
+                                progressDialog.dismiss();
+                                AdvanceResponse data = response.body();
+                                Toast.makeText(getActivity(),data.getMensajeAccion(),Toast.LENGTH_LONG).show();
+
+                                final Handler handler = new Handler();
+                                handler.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        getActivity().finish();
+                                        //Do something after 100ms
+                                    }
+                                }, 1000);
+                                break;
+                            case 401:
+                                progressDialog.dismiss();
+                                break;
+                            default:
+                                progressDialog.dismiss();
+                                break;
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<AdvanceResponse> call, Throwable t) {
+
+                    }
+                });
+
+                // User clicked OK button
+            }
+        });
+        builder.setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User cancelled the dialog
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
 
 
 }

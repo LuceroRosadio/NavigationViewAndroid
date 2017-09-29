@@ -13,8 +13,9 @@ android:layout_marginRight="0dp">
     android:orientation="horizontal">
 
     <TextView
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="0.10"
+        android:layout_height="match_parent"
         android:id="@+id/tv_nro"
         android:textSize="10sp"
         android:background="@drawable/back"
@@ -22,8 +23,9 @@ android:layout_marginRight="0dp">
         android:layout_gravity="center_vertical"/>
 
     <TextView
-        android:layout_width="48dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="0.20"
+        android:layout_height="match_parent"
         android:id="@+id/tv_origen"
         android:textAlignment="center"
         android:background="@drawable/back"
@@ -31,8 +33,9 @@ android:layout_marginRight="0dp">
         android:layout_gravity="center_vertical"/>
 
     <TextView
-        android:layout_width="54dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="0.20"
+        android:layout_height="match_parent"
         android:id="@+id/tv_destino"
         android:background="@drawable/back"
         android:textSize="10sp"
@@ -40,8 +43,9 @@ android:layout_marginRight="0dp">
         android:layout_gravity="center_vertical"/>
 
     <TextView
-        android:layout_width="52dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="0.20"
+        android:layout_height="match_parent"
         android:id="@+id/tv_evento"
         android:background="@drawable/back"
         android:textSize="10sp"
@@ -49,8 +53,9 @@ android:layout_marginRight="0dp">
         android:layout_gravity="center_vertical"/>
 
     <TextView
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="0.20"
+        android:layout_height="match_parent"
         android:id="@+id/tv_fecha_hora"
         android:background="@drawable/back"
         android:textSize="10sp"
@@ -58,8 +63,9 @@ android:layout_marginRight="0dp">
         android:layout_gravity="center_vertical"/>
 
     <TextView
-        android:layout_width="54dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="0.20"
+        android:layout_height="match_parent"
         android:id="@+id/tv_usuario"
         android:background="@drawable/back"
         android:textSize="10sp"

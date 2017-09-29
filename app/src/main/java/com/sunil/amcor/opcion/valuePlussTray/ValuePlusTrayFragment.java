@@ -130,5 +130,13 @@ public class ValuePlusTrayFragment extends Fragment {
             }
         });
     }
+    @Override
+    public void onResume() {
+        Log.i(TAG,"RECARGANDO");
+        loadJsonPedidos();
+        super.onResume();
+
+        // reload your list items if changed and adapter.notifydatastatechange();
+    }
 
 }

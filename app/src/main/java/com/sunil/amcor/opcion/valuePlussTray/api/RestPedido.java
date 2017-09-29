@@ -16,5 +16,4 @@ public interface RestPedido {
 
     @GET("RS_Consulta/consulta/pedido")
     Call<OrderRequestResponse> getOrder(@QueryMap Map<String, String> datos);
-    //@Path("pedidos") String cliente
 }

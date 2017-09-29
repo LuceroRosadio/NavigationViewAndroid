@@ -13,5 +13,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint_solicitud">Solicitud</string>
-    <string name="title_activity_detalle_main">DetalleMainActivity</string>
+    <string name="title_activity_detalle_main">Detalle del Pedido</string>
+    <string name="message_confirm">Esta seguro de avanzar el pedido?</string>
+    <string name="avanzar">Avanzar</string>
+    <string name="cancelar">Cancelar</string>
 </resources>

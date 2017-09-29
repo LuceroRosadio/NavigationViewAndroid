@@ -9,31 +9,31 @@ import com.google.gson.annotations.SerializedName;
  * Created by Lucero on 27/09/2017.
  */
 
-public class DetalleResponse implements Parcelable {
+public class AdvanceResponse implements Parcelable {
 
     @SerializedName("mensajeAccion")
     private String mensajeAccion;
 
-    public DetalleResponse() {
+    public AdvanceResponse() {
     }
 
-    public DetalleResponse(String mensajeAccion) {
+    public AdvanceResponse(String mensajeAccion) {
         this.mensajeAccion = mensajeAccion;
     }
 
-    protected DetalleResponse(Parcel in) {
+    protected AdvanceResponse(Parcel in) {
         mensajeAccion = in.readString();
     }
 
-    public static final Creator<DetalleResponse> CREATOR = new Creator<DetalleResponse>() {
+    public static final Creator<AdvanceResponse> CREATOR = new Creator<AdvanceResponse>() {
         @Override
-        public DetalleResponse createFromParcel(Parcel in) {
-            return new DetalleResponse(in);
+        public AdvanceResponse createFromParcel(Parcel in) {
+            return new AdvanceResponse(in);
         }
 
         @Override
-        public DetalleResponse[] newArray(int size) {
-            return new DetalleResponse[size];
+        public AdvanceResponse[] newArray(int size) {
+            return new AdvanceResponse[size];
         }
     };
 
