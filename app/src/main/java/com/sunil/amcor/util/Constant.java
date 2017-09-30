@@ -7,7 +7,7 @@ import com.sunil.amcor.opcion.valuePlussTray.detalle.ImagenAdjunta;
  */
 
 public class Constant {
-    public static final String BASE_URL="http://node142428-env-1313427.jelasticlw.com.br/";
+    public static final String BASE_URL="http://192.168.1.33:8081/";
     public static final String HISTORICA_QUERY="CHP";
     public static ImagenAdjunta imagenAdjunta;
     public static String base64;

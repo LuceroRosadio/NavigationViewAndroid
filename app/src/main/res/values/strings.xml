@@ -15,6 +15,10 @@
     <string name="hint_solicitud">Solicitud</string>
     <string name="title_activity_detalle_main">Detalle del Pedido</string>
     <string name="message_confirm">Esta seguro de avanzar el pedido?</string>
+    <string name="message_aprobado">Debe aprobar el pedido</string>
+    <string name="message_rechazado">El pedido se encuentra aprobado</string>
+    <string name="message_confirm_back">Esta seguro que desea retroceder el pedido?</string>
     <string name="avanzar">Avanzar</string>
+    <string name="retroceder">Retroceder</string>
     <string name="cancelar">Cancelar</string>
 </resources>

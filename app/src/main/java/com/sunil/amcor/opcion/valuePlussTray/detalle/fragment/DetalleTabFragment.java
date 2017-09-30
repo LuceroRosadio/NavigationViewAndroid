@@ -22,7 +22,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,6 +66,7 @@ public class DetalleTabFragment extends Fragment {
     private List<PedidoDetalle> pedidoDetalles = new ArrayList<>();
 
     private AdvanceRequest advanceRequest = new AdvanceRequest();
+    private BackRequest backRequest = new BackRequest();
 
     TextView numPedido;
     TextView producto;
@@ -76,7 +80,9 @@ public class DetalleTabFragment extends Fragment {
     ImageView base64;
     Button viewFile;
     Button avanzar;
-
+    Button retroceder;
+    Switch aprobado;
+    EditText observacion;
     public DetalleTabFragment() {
     }
 
@@ -113,10 +119,25 @@ public class DetalleTabFragment extends Fragment {
         base64= (ImageView)view.findViewById(R.id.img_detalle);
         coordinatorLayout = (CoordinatorLayout)view.findViewById(R.id.tab_detalle_coordinator);
         viewFile = (Button)view.findViewById(R.id.btn_orden_compra);
-        if(Constant.HISTORICA_QUERY.equals(Constant.codOpcion))
-        viewFile.setVisibility(View.GONE);
         avanzar = (Button)view.findViewById(R.id.btn_avanzar);
-
+        retroceder = (Button)view.findViewById(R.id.btn_back);
+        aprobado=(Switch)view.findViewById(R.id.aprobado);
+        observacion=(EditText)view.findViewById(R.id.observacion);
+        if(Constant.HISTORICA_QUERY.equals(Constant.codOpcion)) {
+            avanzar.setVisibility(View.INVISIBLE);
+            aprobado.setVisibility(View.INVISIBLE);
+            retroceder.setVisibility(View.INVISIBLE);
+        }
+        aprobado.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(!isChecked){
+                    observacion.setVisibility(View.VISIBLE);
+                }else{
+                    observacion.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
         Log.d(TAG, "numPedido: "+pedidos.getNumeroPedido());
         Log.d(TAG, "producto: "+pedidos.getProducto());
         Log.d(TAG, "unidad: "+pedidos.getUnidadMedida());
@@ -179,12 +200,31 @@ public class DetalleTabFragment extends Fragment {
             }
         });
 
+        retroceder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                retrocederPedido(v);
+            }
+        });
         return view;
     }
 
     public void advancePedido(final View v) {
         Log.d(TAG, "advancePedido");
+        Boolean isAprobado= aprobado.isChecked();
+        if(!isAprobado){
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage(R.string.message_aprobado);
+            builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
 
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            return;
+        }
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage(R.string.message_confirm);
         builder.setPositiveButton(R.string.avanzar, new DialogInterface.OnClickListener() {
@@ -261,5 +301,98 @@ public class DetalleTabFragment extends Fragment {
 
     }
 
+    public void retrocederPedido(final View v) {
+        Log.d(TAG, "retrocederPedido");
+        Log.d(TAG, "advancePedido");
+        Boolean isAprobado= aprobado.isChecked();
+        if(isAprobado){
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage(R.string.message_rechazado);
+            builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            return;
+        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage(R.string.message_confirm_back);
+        builder.setPositiveButton(R.string.retroceder, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                final ProgressDialog progressDialog = new ProgressDialog(v.getContext(),
+                        R.style.AppTheme_Dark_Dialog);
+                progressDialog.setMessage("Cargando...");
+                progressDialog.setIndeterminate(true);
+                progressDialog.setCancelable(false);
+                progressDialog.show();
+                Gson gson = new GsonBuilder()
+                        .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                        .create();
+
+                OkHttpClient client = new OkHttpClient.Builder()
+                        .addInterceptor(new AdvanceInterceptor(getContext()))
+                        .build();
+
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(Constant.BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create(gson))
+                        .client(client)
+                        .build();
+
+                RestClient restClient = retrofit.create(RestClient.class);
+                backRequest.setCodigoPerfil(Constant.codPerfil);
+                backRequest.setCodigoUsuario(Constant.codUsuario);
+                backRequest.setNumeroPedido(pedidos.getNumeroPedido());
+                backRequest.setObservacion(observacion.getText().toString());
+                Call<AdvanceResponse> call = restClient.back(backRequest);
+                call.enqueue(new Callback<AdvanceResponse>() {
+                    @Override
+                    public void onResponse(Call<AdvanceResponse> call, Response<AdvanceResponse> response) {
+                        Log.d(TAG, response.code() +"");
+                        switch (response.code()) {
+                            case 200:
+                                progressDialog.dismiss();
+                                AdvanceResponse data = response.body();
+                                Toast.makeText(getActivity(),data.getMensajeAccion(),Toast.LENGTH_LONG).show();
+
+                                final Handler handler = new Handler();
+                                handler.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        getActivity().finish();
+                                        //Do something after 100ms
+                                    }
+                                }, 1000);
+                                break;
+                            case 401:
+                                progressDialog.dismiss();
+                                break;
+                            default:
+                                progressDialog.dismiss();
+                                break;
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<AdvanceResponse> call, Throwable t) {
+
+                    }
+                });
+
+                // User clicked OK button
+            }
+        });
+        builder.setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User cancelled the dialog
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
 
 }
