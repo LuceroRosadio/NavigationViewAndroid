@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sunil.amcor.opcion.valuePlussTray.detalle.fragment.DetalleTabFragment"
+    tools:context="com.amcor.opcion.valuePlussTray.detalle.fragment.DetalleTabFragment"
     android:id="@+id/tab_detalle_coordinator">
 
     <RelativeLayout

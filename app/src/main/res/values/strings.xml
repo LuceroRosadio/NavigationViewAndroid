@@ -18,7 +18,12 @@
     <string name="message_aprobado">Debe aprobar el pedido</string>
     <string name="message_rechazado">El pedido se encuentra aprobado</string>
     <string name="message_confirm_back">Esta seguro que desea retroceder el pedido?</string>
+    <string name="message_confirm_logout">Esta seguro de cerrar sesion?</string>
     <string name="avanzar">Avanzar</string>
     <string name="retroceder">Retroceder</string>
     <string name="cancelar">Cancelar</string>
+    <string name="cerrar_sesion">Cerrar sesion</string>
+    <string name="salir">Salir</string>
+    <string name="default_notification_channel_name" translatable="true">News</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
 </resources>

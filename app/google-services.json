@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "843024103193",
+    "firebase_url": "https://amcor-581ee.firebaseio.com",
+    "project_id": "amcor-581ee",
+    "storage_bucket": "amcor-581ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:843024103193:android:d5b2bffb3bea134e",
+        "android_client_info": {
+          "package_name": "com.amcor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "843024103193-u4ru47bv2ecrllqni5l7j9v82sb6gchq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amcor",
+            "certificate_hash": "057201a85d7d53aa613673b818a3515bd01c4c58"
+          }
+        },
+        {
+          "client_id": "843024103193-qg6g2e4p3toamgj3gl3cb479kvu2m4ff.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLwNpP2IX9tDlu9sQXGpdn4lw5TnQQl9s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "843024103193-qg6g2e4p3toamgj3gl3cb479kvu2m4ff.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
