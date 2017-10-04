@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         if (!SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
             startActivity(new Intent(this, LoginActivity.class));
@@ -97,8 +98,18 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(adapter);
-
-        setFragment();
+        if (getIntent().getExtras() != null) {
+            String option=getIntent().getExtras().getString("option");
+            if(option!=null) {
+                OpcionModulo opcionModulo = new OpcionModulo();
+                opcionModulo.setCodOpcion(option);
+                onChildClick(1, opcionModulo);
+            }else{
+                setFragment();
+            }
+        }else {
+            setFragment();
+        }
     }
 
     private void setFragment() {
@@ -167,7 +178,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
         Constant.codPerfil=data.getUsuario().getCodPerfil();
         Constant.codUsuario=data.getUsuario().getCodUsuario();
         bundle.putParcelable("data", data);
-        switch (option.getEstadoOpcion()) {
+        switch (option.getCodOpcion()) {
 
             case "orderRequest":
                 OrderRequestFragment orderRequestFragment = new OrderRequestFragment();
@@ -185,7 +196,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
                         .commit();
                 setTitle(option.getNombreOpcion());
                 break;
-            case "commercialTray":
+            case "BC":
 
                 ValuePlusTrayFragment valuePlusTrayFragment = new ValuePlusTrayFragment();
                 valuePlusTrayFragment.setArguments(bundle);
@@ -193,11 +204,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
                         .replace(R.id.frame, valuePlusTrayFragment, "valuePlusTrayFragment")
                         .addToBackStack("valuePlusTrayFragment")
                         .commit();
-                setTitle(option.getNombreOpcion());
+                setTitle(Constant.BANDEJA_COMERCIAL_NAME);
                 /*FragmentTransaction fragmentTransaction2 = getFragmentManager().beginTransaction();
                 fragmentTransaction2.replace(R.id.frame, valuePlusTrayFragment, "valuePlusTrayFragment").commit();*/
                 break;
-            case "historicaQuery":
+            case "CHP":
 
                 ValuePlusTrayFragment historicaQuery = new ValuePlusTrayFragment();
 
@@ -206,7 +217,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
                         .replace(R.id.frame, historicaQuery, "valuePlusTrayFragment")
                         .addToBackStack("valuePlusTrayFragment")
                         .commit();
-                setTitle(option.getNombreOpcion());
+                setTitle(Constant.HISTOCIA_QUERY_NAME);
                 break;
         }
 
