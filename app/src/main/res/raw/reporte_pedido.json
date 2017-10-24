@@ -1,0 +1,24 @@
+{
+  "reportePedido" : [
+    {
+      "claseEstructura" : "Monocapa",
+      "toneladas" : 5.23,
+      "total" : 123.43
+    },
+    {
+      "claseEstructura" : "Bilaminado",
+      "toneladas" : 5,
+      "total" : 123
+    },
+    {
+      "claseEstructura" : "Monocapa",
+      "toneladas" : 34.2,
+      "total" : 23.23
+    },
+    {
+      "claseEstructura" : "Monocapa",
+      "toneladas" :10,
+      "total" : 19
+    }
+  ]
+}

@@ -23,7 +23,8 @@ public class Usuario implements Parcelable{
     private String nombresUsuario;
     @SerializedName("codPerfil")
     private String codPerfil;
-
+    @SerializedName("ejecutivoComercial")
+    private List<EjecutivoComercial> ejecutivoComercialList;
     public Usuario() {
     }
 
@@ -39,6 +40,7 @@ public class Usuario implements Parcelable{
         cliente = in.readParcelable(Cliente.class.getClassLoader());
         codUsuario = in.readString();
         moduloList = in.createTypedArrayList(Modulo.CREATOR);
+        ejecutivoComercialList = in.createTypedArrayList(EjecutivoComercial.CREATOR);
         nombresUsuario = in.readString();
         codPerfil = in.readString();
     }
@@ -63,6 +65,7 @@ public class Usuario implements Parcelable{
                 ", moduloList=" + moduloList +
                 ", nombresUsuario='" + nombresUsuario + '\'' +
                 ", codPerfil='" + codPerfil + '\'' +
+                ", ejecutivoComercialList=" + ejecutivoComercialList +
                 '}';
     }
 
@@ -106,6 +109,14 @@ public class Usuario implements Parcelable{
         this.codPerfil = codPerfil;
     }
 
+    public List<EjecutivoComercial> getEjecutivoComercialList() {
+        return ejecutivoComercialList;
+    }
+
+    public void setEjecutivoComercialList(List<EjecutivoComercial> ejecutivoComercialList) {
+        this.ejecutivoComercialList = ejecutivoComercialList;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -118,5 +129,6 @@ public class Usuario implements Parcelable{
         dest.writeTypedList(moduloList);
         dest.writeString(nombresUsuario);
         dest.writeString(codPerfil);
+        dest.writeTypedList(ejecutivoComercialList);
     }
 }

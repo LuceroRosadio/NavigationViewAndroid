@@ -1,5 +1,7 @@
 package com.amcor.opcion.valuePlussTray.api;
 
+import com.amcor.opcion.reporteGerencialTonelada.model.ReportePedidoResponse;
+import com.amcor.opcion.reporteGerencialVenta.model.ReporteClienteResponse;
 import com.amcor.opcion.valuePlussTray.model.OrderRequestResponse;
 
 import java.util.Map;
@@ -16,4 +18,10 @@ public interface RestPedido {
 
     @GET("RS_Consulta/consulta/pedido")
     Call<OrderRequestResponse> getOrder(@QueryMap Map<String, String> datos);
+
+    @GET("reportePedido")
+    Call<ReportePedidoResponse> reportePedido(@QueryMap Map<String, String> datos);
+
+    @GET("reporteCliente")
+    Call<ReporteClienteResponse> reporteCliente(@QueryMap Map<String, String> datos);
 }

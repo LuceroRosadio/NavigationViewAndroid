@@ -1,6 +1,5 @@
 package com.amcor;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;
@@ -27,7 +26,8 @@ import com.amcor.data.OpcionModulo;
 import com.amcor.data.UserResponse;
 import com.amcor.fragment.OrderRequestFragment;
 import com.amcor.fragment.QueryTrackingFragment;
-import com.amcor.opcion.createOrder.ContainerFragment;
+import com.amcor.opcion.reporteGerencialTonelada.ReporteGerencialToneladaFragment;
+import com.amcor.opcion.reporteGerencialVenta.ReporteGerencialVentaFragment;
 import com.amcor.opcion.valuePlussTray.ValuePlusTrayFragment;
 import com.amcor.util.Constant;
 import com.amcor.util.SharedPrefManager;
@@ -218,6 +218,28 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.I
                         .addToBackStack("valuePlusTrayFragment")
                         .commit();
                 setTitle(Constant.HISTOCIA_QUERY_NAME);
+                break;
+            case "RGV":
+
+                ReporteGerencialVentaFragment reporteGerencialVentaFragment = new ReporteGerencialVentaFragment();
+
+                reporteGerencialVentaFragment.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame, reporteGerencialVentaFragment, "valuePlusTrayFragment")
+                        .addToBackStack("reporteGeneralVentaFragment")
+                        .commit();
+                setTitle(Constant.REPORTE_GERENCIAL_VENTA_NAME);
+                break;
+            case "RGT":
+
+                ReporteGerencialToneladaFragment reporteGerencialToneladaFragment = new ReporteGerencialToneladaFragment();
+
+                reporteGerencialToneladaFragment.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame, reporteGerencialToneladaFragment, "reporteGerencialToneladaFragment")
+                        .addToBackStack("reporteGerencialToneladaFragment")
+                        .commit();
+                setTitle(Constant.REPORTE_GERENCIAL_TONELADA_NAME);
                 break;
         }
 

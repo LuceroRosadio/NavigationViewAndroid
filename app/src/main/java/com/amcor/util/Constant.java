@@ -11,6 +11,8 @@ public class Constant {
     public static final String HISTORICA_QUERY="CHP";
     public static final String BANDEJA_COMERCIAL_NAME = "Bandeja comercial";
     public static final String HISTOCIA_QUERY_NAME = "Consultar Ubicación de Pedido";
+    public static final String REPORTE_GERENCIAL_VENTA_NAME = "Reporte Gerencial Venta";
+    public static final String REPORTE_GERENCIAL_TONELADA_NAME = "Reporte Gerencial Tonelada";
     public static ImagenAdjunta imagenAdjunta;
     public static String base64;
     public static String codOpcion;

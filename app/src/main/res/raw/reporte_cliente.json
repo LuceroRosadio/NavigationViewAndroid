@@ -1,0 +1,24 @@
+{
+  "reporteCliente" : [
+    {
+      "ejecutivoComercial" : "Luis Huapaya",
+      "cliente" : "cliente 1",
+      "total" : 123.43
+    },
+    {
+      "ejecutivoComercial" : "Luis Huapaya",
+      "cliente" : "cliente 2",
+      "total" : 122.12
+    },
+    {
+      "ejecutivoComercial" : "Luis Huapaya",
+      "cliente" : "cliente 3",
+      "total" : 89
+    },
+    {
+      "ejecutivoComercial" : "Luis Huapaya",
+      "cliente" : "cliente 4",
+      "total" : 12
+    }
+  ]
+}

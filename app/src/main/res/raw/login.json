@@ -2,11 +2,6 @@
     "usuario": {
         "clientes": [
             {
-                "codCliente": 1,
-                "correo": "jose.par.val@gmail.com",
-                "nombreCliente": "P & G - PERU"
-            },
-            {
                 "codCliente": 2,
                 "correo": "jose.par.val@gmail.com",
                 "nombreCliente": "KIMBERLY CLARK PERU"
@@ -17,14 +12,14 @@
                 "nombreCliente": "NESTLE"
             },
             {
-                "codCliente": 4,
+                "codCliente": 1,
                 "correo": "jose.par.val@gmail.com",
-                "nombreCliente": "ALICORP-O"
+                "nombreCliente": "P & G - PERU"
             }
         ],
-        "codPerfil": "GC",
+        "codPerfil": "CL",
         "codUsuario": "LHUAPAYA",
-        "modulos": [      
+        "modulos": [
             {
                 "codModulo": "SEGPROD",
                 "nombreModulo": "Seguimiento de Pedido",
@@ -37,19 +32,48 @@
                 ]
             },
             {
-                "codModulo": "APRPED",
-                "nombreModulo": "Gestión de Solicitud",
+
+                "codModulo": "REPGER",
+
+                "nombreModulo": "Reportes Gerenciales",
+
                 "opciones": [
+
                     {
-                        "codOpcion": "BC",
-                        "estadoOpcion": "commercialTray",
-                        "nombreOpcion": "Bandeja Comercial"
+
+                        "codOpcion": "RGV",
+
+                        "estadoOpcion": "reportGerencialVenta",
+
+                        "nombreOpcion": "Reporte Gerencial Venta"
+
+                    },
+
+                    {
+
+                        "codOpcion": "RGT",
+
+                        "estadoOpcion": "reportGerencialTonelada",
+
+                        "nombreOpcion": "Reporte Gerencial Tonelada"
+
                     }
+
                 ]
+
             }
         ],
-        "nombresUsuario": "Luis Huapaya"
+        "nombresUsuario": "Luis Huapaya",
+        "ejecutivoComercial" : [
+            {
+                "codEjecutivo" : 1,
+                "nombreEjecutivo" : "Luis Huapaya"
+            },
+            {
+                "codEjecutivo" : 2,
+                "nombreEjecutivo" : "Johel Castillo"
+            }
+        ]
     },
     "token": "12345543"
 }
-
